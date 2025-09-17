@@ -260,53 +260,51 @@ export const Navbar = () => {
       <AnimatePresence>
         {showNavbar && (
           <motion.div
-            className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50"
-            initial={{ y: 100, opacity: 0, scale: 0.8 }}
+            className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50"
+            initial={{ y: 100, opacity: 0, scale: 0.9 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
-            exit={{ y: 100, opacity: 0, scale: 0.8 }}
+            exit={{ y: 100, opacity: 0, scale: 0.9 }}
             transition={{ 
               type: "spring", 
-              stiffness: 300, 
+              stiffness: 400,
               damping: 30,
-              duration: 0.5
+              mass: 0.5
             }}
           >
             <div className={cn(
               "flex items-center justify-center",
-              "bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl",
-              "rounded-2xl shadow-2xl p-3",
-              "border border-gray-200/50 dark:border-gray-600/50",
+              "bg-white/95 dark:bg-gray-800/95 backdrop-blur-lg",
+              "rounded-xl shadow-lg p-2",
+              "border border-gray-200/60 dark:border-gray-600/60",
               "relative overflow-hidden"
             )}>
-              {/* Background gradient effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/3 via-purple-500/3 to-pink-500/3 rounded-xl" />
               
-              <div className="flex space-x-2 items-center relative z-10">
+              <div className="flex space-x-1 items-center relative z-10">
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
                     className={cn(
-                      "relative p-3 rounded-xl transition-all duration-300 ease-in-out",
+                      "relative p-2 rounded-lg transition-all duration-200 ease-in-out",
                       "flex flex-col items-center group",
-                      "min-w-[60px] md:min-w-[70px]",
+                      "min-w-[50px] md:min-w-[55px]",
                       activeSection === item.href
-                        ? "bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg"
-                        : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700/50"
+                        ? "bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-md"
+                        : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100/80 dark:hover:bg-gray-700/40"
                     )}
                     aria-label={item.name}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
+                    transition={{ delay: index * 0.08, type: "spring", stiffness: 400 }}
+                    whileHover={{ scale: 1.05, y: -1 }}
+                    whileTap={{ scale: 0.96 }}
                   >
-                    {/* Active indicator */}
                     {activeSection === item.href && (
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl"
+                        className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"
                         layoutId="activeTab"
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
                     )}
                     
@@ -316,29 +314,24 @@ export const Navbar = () => {
                         activeSection === item.href && "text-white"
                       )}
                       animate={{
-                        scale: activeSection === item.href ? 1.1 : 1,
+                        scale: activeSection === item.href ? 1.08 : 1,
                       }}
-                      transition={{ duration: 0.2 }}
+                      transition={{ duration: 0.15 }}
                     >
-                      <item.icon className="w-5 h-5 mb-1" />
-                      <span className="text-xs font-medium hidden md:block">
+                      <item.icon className="w-4 h-4 md:w-[18px] md:h-[18px] mb-0.5" />
+                      <span className="text-[10px] font-medium hidden md:block">
                         {item.name}
                       </span>
                     </motion.div>
-                    
-                    {/* Hover effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
                   </motion.a>
                 ))}
                 
-                {/* Divider */}
-                <div className="w-px h-8 bg-gray-200 dark:bg-gray-600 mx-2" />
+                <div className="w-px h-6 bg-gray-200 dark:bg-gray-600 mx-1" />
                 
-                {/* Theme Toggle */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6 }}
+                  transition={{ delay: 0.5, type: "spring" }}
                 >
                   <ThemeToggle />
                 </motion.div>

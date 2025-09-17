@@ -7,11 +7,17 @@ import {
   Send,
   Twitter,
   Github,
-  Loader2
+  Loader2,
+  Heart,
+  Coffee,
+  MessageSquare,
+  ArrowRight,
+  Sparkles
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export const ContactSection = () => {
   const { toast } = useToast();
