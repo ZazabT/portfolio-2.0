@@ -10,7 +10,7 @@ import { TestimonialSection } from "../components/Testimonial";
 
 export const Home = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden max-w-7xl mx-auto">
       {/* Theme Toggle */}
       {/* Background Effects */}
       <StarBackground />
