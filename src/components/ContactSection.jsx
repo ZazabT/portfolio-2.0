@@ -109,164 +109,240 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 relative bg-background">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="inline-block px-3 py-1 text-xs sm:text-sm font-medium rounded-full bg-primary/10 text-primary mb-3 sm:mb-4">
-            Let's Connect
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600">
-            Get In Touch
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or just want to say hi? My inbox is always open.
-          </p>
-        </div>
+    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-background to-muted/30">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+          backgroundSize: '20px 20px'
+        }} />
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
-          {/* Contact Information */}
-          <div className="space-y-6 sm:space-y-8 p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br from-secondary/20 to-background border border-border">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2">
-              <span className="w-3 sm:w-4 h-3 sm:h-4 rounded-full bg-primary"></span>
-              Contact Details
-            </h3>
+      <div className="container mx-auto max-w-5xl relative">
+        {/* Unique header with different approach */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <motion.div 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border/50 mb-6"
+            whileHover={{ scale: 1.05 }}
+          >
+            <Heart className="w-4 h-4 text-red-500" />
+            <span className="text-sm font-medium text-muted-foreground">Let's create something amazing together</span>
+          </motion.div>
+          
+          <motion.h2 
+            className="text-4xl md:text-6xl font-light mb-6 text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <span className="block">Let's have a</span>
+            <span className="block font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+              conversation
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Whether you have a project in mind, want to collaborate, or just want to say hello over a virtual coffee ☕
+          </motion.p>
+        </motion.div>
 
-            <div className="space-y-4 sm:space-y-6">
-              <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 hover:bg-accent/30 rounded-lg sm:rounded-xl transition-all duration-300">
-                <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary">
-                  <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
+        {/* Unique layout - Vertical flow instead of side-by-side */}
+        <div className="space-y-16">
+          {/* Contact methods - Horizontal cards */}
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {/* Email Card */}
+            <motion.div 
+              className="group p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+              whileHover={{ y: -5 }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
+                  <Mail className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Email</p>
-                  <a
-                    href="mailto:tizazabayana@gmail.com"
-                    className="text-sm sm:text-base font-medium hover:text-primary transition-colors"
-                  >
-                    tizazabayana@gmail.com
-                  </a>
+                  <h3 className="font-semibold text-foreground">Email</h3>
+                  <p className="text-sm text-muted-foreground">Best for projects</p>
                 </div>
               </div>
-              
-              <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 hover:bg-accent/30 rounded-lg sm:rounded-xl transition-all duration-300">
-                <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary">
-                  <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
+              <a
+                href="mailto:tizazabayana@gmail.com"
+                className="text-primary hover:text-primary/80 transition-colors font-medium"
+              >
+                tizazabayana@gmail.com
+              </a>
+            </motion.div>
+
+            {/* Phone Card */}
+            <motion.div 
+              className="group p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+              whileHover={{ y: -5 }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 rounded-xl bg-green-50 dark:bg-green-900/20 group-hover:bg-green-100 dark:group-hover:bg-green-900/30 transition-colors">
+                  <Phone className="h-6 w-6 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Phone</p>
-                  <a
-                    href="tel:+251913173163"
-                    className="text-sm sm:text-base font-medium hover:text-primary transition-colors"
-                  >
-                    +251 913 173 163
-                  </a>
+                  <h3 className="font-semibold text-foreground">Phone</h3>
+                  <p className="text-sm text-muted-foreground">Quick calls</p>
                 </div>
               </div>
-              
-              <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 hover:bg-accent/30 rounded-lg sm:rounded-xl transition-all duration-300">
-                <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-primary/10 text-primary">
-                  <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
+              <a
+                href="tel:+251913173163"
+                className="text-primary hover:text-primary/80 transition-colors font-medium"
+              >
+                +251 913 173 163
+              </a>
+            </motion.div>
+
+            {/* Location Card */}
+            <motion.div 
+              className="group p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+              whileHover={{ y: -5 }}
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 rounded-xl bg-purple-50 dark:bg-purple-900/20 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/30 transition-colors">
+                  <MapPin className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
-                  <p className="text-xs sm:text-sm text-muted-foreground">Location</p>
-                  <span className="text-sm sm:text-base font-medium">
-                    Addis Ababa, Ethiopia
-                  </span>
+                  <h3 className="font-semibold text-foreground">Location</h3>
+                  <p className="text-sm text-muted-foreground">Based in</p>
                 </div>
               </div>
+              <span className="text-primary font-medium">
+                Addis Ababa, Ethiopia
+              </span>
+            </motion.div>
+          </motion.div>
+
+          {/* Social Links - Minimalist approach */}
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-lg font-medium text-muted-foreground mb-6">Or find me on social media</h3>
+            <div className="flex justify-center gap-4">
+              {[
+                { icon: Github, label: "GitHub", url: "https://github.com/ZazabT", color: "hover:text-gray-700 dark:hover:text-gray-300" },
+                { icon: Linkedin, label: "LinkedIn", url: "https://linkedin.com/in/codewithkinu", color: "hover:text-blue-600" },
+                { icon: Twitter, label: "Twitter", url: "#", color: "hover:text-blue-400" },
+                { icon: Instagram, label: "Instagram", url: "#", color: "hover:text-pink-600" },
+              ].map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-3 rounded-full bg-muted/50 hover:bg-muted transition-all duration-300 text-muted-foreground ${social.color}`}
+                  aria-label={social.label}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <social.icon className="h-5 w-5" />
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Contact Form - Centered and unique design */}
+          <motion.div 
+            className="max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-center mb-8">
+              <motion.div 
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4"
+                whileHover={{ scale: 1.05 }}
+              >
+                <MessageSquare className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">Send a message</span>
+              </motion.div>
+              <h3 className="text-2xl md:text-3xl font-light text-foreground mb-2">
+                Let's start a conversation
+              </h3>
+              <p className="text-muted-foreground">
+                I'd love to hear about your project or just chat about ideas
+              </p>
             </div>
 
-            <div className="pt-6 sm:pt-8">
-              <h4 className="font-medium mb-3 sm:mb-4 text-xs sm:text-sm text-muted-foreground">Find me on</h4>
-              <div className="flex gap-2 sm:gap-3">
-                {[
-                  {
-                    icon: Github,
-                    label: "GitHub",
-                    url: "https://github.com/ZazabT",
-                  },
-                  {
-                    icon: Linkedin,
-                    label: "LinkedIn",
-                    url: "#",
-                  },
-                  {
-                    icon: Twitter,
-                    label: "Twitter",
-                    url: "#",
-                  },
-                  {
-                    icon: Instagram,
-                    label: "Instagram",
-                    url: "#",
-                  },
-                ].map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-accent hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all duration-300"
-                    aria-label={social.label}
+            <motion.form 
+              className="space-y-6"
+              onSubmit={handleSubmit}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-medium text-foreground"
                   >
-                    <social.icon className="h-4 w-4 sm:h-5 sm:w-5" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+                    Your name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white/50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all text-base"
+                    placeholder="What should I call you?"
+                  />
+                </div>
 
-          {/* Contact Form */}
-          <div className="p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-card border border-border shadow-sm">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2">
-              <span className="w-3 sm:w-4 h-3 sm:h-4 rounded-full bg-primary"></span>
-              Send Me a Message
-            </h3>
-
-            <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
-              <div className="space-y-1">
-                <label
-                  htmlFor="name"
-                  className="text-xs sm:text-sm font-medium text-muted-foreground"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-sm sm:text-base"
-                  placeholder="John Doe"
-                />
-              </div>
-
-              <div className="space-y-1">
-                <label
-                  htmlFor="email"
-                  className="text-xs sm:text-sm font-medium text-muted-foreground"
-                >
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all text-sm sm:text-base"
-                  placeholder="john@example.com"
-                />
+                <div className="space-y-2">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-medium text-foreground"
+                  >
+                    Your email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white/50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all text-base"
+                    placeholder="your@email.com"
+                  />
+                </div>
               </div>
 
-              <div className="space-y-1">
+              <div className="space-y-2">
                 <label
                   htmlFor="message"
-                  className="text-xs sm:text-sm font-medium text-muted-foreground"
+                  className="text-sm font-medium text-foreground"
                 >
-                  Your Message
+                  Your message
                 </label>
                 <textarea
                   id="message"
@@ -274,34 +350,52 @@ export const ContactSection = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={4}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all resize-none text-sm sm:text-base"
-                  placeholder="Hey, I'd love to collaborate on..."
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white/50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all resize-none text-base"
+                  placeholder="Tell me about your project, idea, or just say hello..."
                 />
               </div>
 
-              <button
+              <motion.button
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "w-full flex items-center justify-center gap-2 py-2 sm:py-3 px-4 sm:px-6 rounded-lg sm:rounded-xl bg-gradient-to-r from-primary to-purple-600 text-white font-medium hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/20 text-sm sm:text-base",
+                  "w-full flex items-center justify-center gap-3 py-4 px-6 rounded-xl bg-primary text-white font-medium hover:bg-primary/90 transition-all duration-300 text-base group",
                   isSubmitting && "opacity-80 cursor-not-allowed"
                 )}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="h-4 w-4 sm:h-5 sm:w-5 animate-spin" />
-                    Sending...
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    Sending your message...
                   </>
                 ) : (
                   <>
-                    Send Message
-                    <Send size={16} className="sm:size-[18px]" />
+                    Send message
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </>
                 )}
-              </button>
-            </form>
-          </div>
+              </motion.button>
+            </motion.form>
+
+            {/* Response time info - Subtle */}
+            <motion.div 
+              className="mt-8 text-center"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/30">
+                <Coffee className="w-4 h-4 text-green-600" />
+                <span className="text-sm text-green-700 dark:text-green-400">
+                  I usually respond within 24 hours
+                </span>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
