@@ -88,7 +88,7 @@ export const HeroSection = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              <Sparkles className="h-4 w-4" />
+              
               Full Stack Developer
             </motion.div>
           </motion.div>
@@ -102,7 +102,7 @@ export const HeroSection = () => {
               className="text-primary inline-block ml-3 relative"
               variants={itemVariants}
             >
-              Tizazab
+              Tizazab Ayana
               <motion.span 
                 className="absolute -bottom-2 left-0 h-1 bg-primary w-full"
                 initial={{ scaleX: 0 }}
@@ -117,7 +117,7 @@ export const HeroSection = () => {
             className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light"
             variants={itemVariants}
           >
-            Crafting <span className="text-primary font-medium">digital experiences</span> that blend beautiful design with <span className="text-secondary font-medium">cutting-edge technology</span> to solve real-world problems.
+           Turning <span className="text-primary font-medium">cool ideas</span> into websites and apps that actually do something.  
           </motion.p>
 
           <motion.div 

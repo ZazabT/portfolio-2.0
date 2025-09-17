@@ -15,7 +15,7 @@ import {
   Github,
   Linkedin,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -25,7 +25,6 @@ const navItems = [
   { name: "Projects", href: "#projects", icon: Briefcase },
   { name: "Testimonials", href: "#testimonials", icon: MessageSquare },
   { name: "Contact", href: "#contact", icon: Mail },
-  { name: "Blog", href: "https://blogni.vercel.app", icon: BookOpen },
 ];
 
 const ThemeToggle = () => {
@@ -47,14 +46,34 @@ const ThemeToggle = () => {
   };
 
   return (
-    <button
+    <motion.button
       onClick={toggleTheme}
-      className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800"
+      className={cn(
+        "p-3 rounded-full transition-all duration-300 ease-in-out",
+        "bg-white/90 dark:bg-gray-800/90 backdrop-blur-md",
+        "hover:bg-gray-100 dark:hover:bg-gray-700",
+        "border border-gray-200/50 dark:border-gray-600/50",
+        "shadow-lg hover:shadow-xl",
+        "group relative overflow-hidden"
+      )}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       title="Toggle theme"
       aria-label="Toggle theme"
     >
-      {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-    </button>
+      <motion.div
+        className="relative z-10"
+        animate={{ rotate: theme === "dark" ? 180 : 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        {theme === "dark" ? (
+          <Sun className="w-5 h-5 text-amber-500" />
+        ) : (
+          <Moon className="w-5 h-5 text-slate-600" />
+        )}
+      </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    </motion.button>
   );
 };
 
@@ -141,66 +160,55 @@ export const Navbar = () => {
     <>
       {/* Top Right Buttons */}
       <motion.div
-        className="fixed top-4 right-4 z-50 flex gap-2"
+        className="fixed top-6 right-6 z-50 flex gap-3"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
       >
         {/* GitHub Button */}
         <motion.a
-          href="https://github.com/sahilmd01" 
+          href="https://github.com/ZazabT" 
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            "p-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md",
-            "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700/50",
-            "border border-gray-200 dark:border-gray-700 shadow-sm",
-            "flex items-center justify-center"
+            "p-3 rounded-full transition-all duration-300 ease-in-out",
+            "bg-white/90 dark:bg-gray-800/90 backdrop-blur-md",
+            "text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white",
+            "hover:bg-gray-100 dark:hover:bg-gray-700",
+            "border border-gray-200/50 dark:border-gray-600/50",
+            "shadow-lg hover:shadow-xl",
+            "group relative overflow-hidden"
           )}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
           title="GitHub Profile"
           aria-label="GitHub Profile"
         >
-          <Github className="w-5 h-5" />
+          <Github className="w-5 h-5 relative z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </motion.a>
 
         {/* LinkedIn Button */}
         <motion.a
-          href="https://linkedin.com/in/codewithkinu" 
+          href="https://www.linkedin.com/in/tizazab-ayana/" 
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            "p-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md",
-            "text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/50",
-            "border border-gray-200 dark:border-gray-700 shadow-sm",
-            "flex items-center justify-center"
+            "p-3 rounded-full transition-all duration-300 ease-in-out",
+            "bg-white/90 dark:bg-gray-800/90 backdrop-blur-md",
+            "text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300",
+            "hover:bg-blue-50 dark:hover:bg-blue-900/30",
+            "border border-gray-200/50 dark:border-gray-600/50",
+            "shadow-lg hover:shadow-xl",
+            "group relative overflow-hidden"
           )}
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
           title="LinkedIn Profile"
           aria-label="LinkedIn Profile"
         >
-          <Linkedin className="w-5 h-5" />
-        </motion.a>
-
-        {/* YouTube Button */}
-        <motion.a
-          href="https://www.youtube.com/@codewithkinu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            "p-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md",
-            "text-red-600 hover:bg-red-100 dark:hover:bg-red-900/50",
-            "border border-gray-200 dark:border-gray-700 shadow-sm",
-            "flex items-center justify-center"
-          )}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          title="YouTube Channel"
-          aria-label="YouTube Channel"
-        >
-          <Youtube className="w-5 h-5" />
+          <Linkedin className="w-5 h-5 relative z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </motion.a>
 
         {/* Music Button */}
@@ -208,13 +216,16 @@ export const Navbar = () => {
           onClick={toggleMusic}
           disabled={!isAudioReady}
           className={cn(
-            "p-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md",
-            "text-primary hover:bg-primary/10 dark:hover:bg-primary/20",
-            "border border-gray-200 dark:border-gray-700 shadow-sm",
-            "flex items-center justify-center",
+            "p-3 rounded-full transition-all duration-300 ease-in-out",
+            "bg-white/90 dark:bg-gray-800/90 backdrop-blur-md",
+            "text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300",
+            "hover:bg-purple-50 dark:hover:bg-purple-900/30",
+            "border border-gray-200/50 dark:border-gray-600/50",
+            "shadow-lg hover:shadow-xl",
+            "group relative overflow-hidden",
             !isAudioReady && "opacity-50 cursor-not-allowed"
           )}
-          whileHover={{ scale: isAudioReady ? 1.05 : 1 }}
+          whileHover={{ scale: isAudioReady ? 1.05 : 1, y: isAudioReady ? -2 : 0 }}
           whileTap={{ scale: isAudioReady ? 0.95 : 1 }}
           title={
             isAudioReady ? (isMusicPlaying ? "Pause music" : "Play music") : "Loading music..."
@@ -223,46 +234,119 @@ export const Navbar = () => {
             isAudioReady ? (isMusicPlaying ? "Pause music" : "Play music") : "Loading music"
           }
         >
-          {isMusicPlaying ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
+          <motion.div
+            className="relative z-10"
+            animate={{ 
+              scale: isMusicPlaying ? [1, 1.1, 1] : 1,
+              rotate: isMusicPlaying ? [0, 5, -5, 0] : 0
+            }}
+            transition={{ 
+              duration: 0.5, 
+              repeat: isMusicPlaying ? Infinity : 0,
+              repeatType: "reverse"
+            }}
+          >
+            {isMusicPlaying ? (
+              <Volume2 className="w-5 h-5" />
+            ) : (
+              <VolumeX className="w-5 h-5" />
+            )}
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-100/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </motion.button>
       </motion.div>
 
       {/* Bottom Navbar */}
-      <motion.div
-        className={cn(
-          "fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50",
-          "transition-transform duration-300 ease-in-out",
-          showNavbar ? "translate-y-0" : "translate-y-full"
-        )}
-        style={{ willChange: "transform" }}
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="flex items-center justify-center bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-full shadow-lg p-2 border border-gray-200 dark:border-gray-700">
-          <div className="flex space-x-1 items-center">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className={cn(
-                  "p-2 rounded-full transition-colors flex flex-col items-center",
-                  activeSection === item.href
-                    ? "bg-primary text-white"
-                    : "text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary"
-                )}
-                aria-label={item.name}
-              >
-                <item.icon className="w-5 h-5" />
-                <span className="text-xs mt-1 hidden md:block">{item.name}</span>
-              </a>
-            ))}
-            <div className="flex items-center px-2">
-              <ThemeToggle />
+      <AnimatePresence>
+        {showNavbar && (
+          <motion.div
+            className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50"
+            initial={{ y: 100, opacity: 0, scale: 0.8 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: 100, opacity: 0, scale: 0.8 }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 300, 
+              damping: 30,
+              duration: 0.5
+            }}
+          >
+            <div className={cn(
+              "flex items-center justify-center",
+              "bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl",
+              "rounded-2xl shadow-2xl p-3",
+              "border border-gray-200/50 dark:border-gray-600/50",
+              "relative overflow-hidden"
+            )}>
+              {/* Background gradient effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-2xl" />
+              
+              <div className="flex space-x-2 items-center relative z-10">
+                {navItems.map((item, index) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.href}
+                    className={cn(
+                      "relative p-3 rounded-xl transition-all duration-300 ease-in-out",
+                      "flex flex-col items-center group",
+                      "min-w-[60px] md:min-w-[70px]",
+                      activeSection === item.href
+                        ? "bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg"
+                        : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700/50"
+                    )}
+                    aria-label={item.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {/* Active indicator */}
+                    {activeSection === item.href && (
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl"
+                        layoutId="activeTab"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                    
+                    <motion.div
+                      className={cn(
+                        "relative z-10 flex flex-col items-center",
+                        activeSection === item.href && "text-white"
+                      )}
+                      animate={{
+                        scale: activeSection === item.href ? 1.1 : 1,
+                      }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <item.icon className="w-5 h-5 mb-1" />
+                      <span className="text-xs font-medium hidden md:block">
+                        {item.name}
+                      </span>
+                    </motion.div>
+                    
+                    {/* Hover effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                  </motion.a>
+                ))}
+                
+                {/* Divider */}
+                <div className="w-px h-8 bg-gray-200 dark:bg-gray-600 mx-2" />
+                
+                {/* Theme Toggle */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <ThemeToggle />
+                </motion.div>
+              </div>
             </div>
-          </div>
-        </div>
-      </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
