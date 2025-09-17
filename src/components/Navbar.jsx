@@ -23,7 +23,6 @@ const navItems = [
   { name: "About", href: "#about", icon: User },
   { name: "Skills", href: "#skills", icon: Code },
   { name: "Projects", href: "#projects", icon: Briefcase },
-  { name: "Testimonials", href: "#testimonials", icon: MessageSquare },
   { name: "Contact", href: "#contact", icon: Mail },
 ];
 
@@ -290,7 +289,7 @@ export const Navbar = () => {
                       "flex flex-col items-center group",
                       "min-w-[50px] md:min-w-[55px]",
                       activeSection === item.href
-                        ? "bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-md"
+                        ? "bg-gradient-to-br from-blue-400 to-purple-400 text-white shadow-md"
                         : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100/80 dark:hover:bg-gray-700/40"
                     )}
                     aria-label={item.name}
@@ -302,7 +301,7 @@ export const Navbar = () => {
                   >
                     {activeSection === item.href && (
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"
+                        className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 rounded-lg"
                         layoutId="activeTab"
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
