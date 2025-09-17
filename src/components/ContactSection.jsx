@@ -109,13 +109,31 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-background to-muted/30">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-          backgroundSize: '20px 20px'
-        }} />
+    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/10">
+      {/* Enhanced background design */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
+            backgroundSize: '30px 30px'
+          }} />
+        </div>
+        
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.01] dark:opacity-[0.03]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(currentColor 1px, transparent 1px),
+              linear-gradient(90deg, currentColor 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
       </div>
 
       <div className="container mx-auto max-w-5xl relative">
@@ -171,7 +189,7 @@ export const ContactSection = () => {
           >
             {/* Email Card */}
             <motion.div 
-              className="group p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+              className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/60 dark:border-gray-700/60 hover:border-blue-400/60 dark:hover:border-blue-500/60 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl"
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-4 mb-4">
@@ -193,7 +211,7 @@ export const ContactSection = () => {
 
             {/* Phone Card */}
             <motion.div 
-              className="group p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+              className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/60 dark:border-gray-700/60 hover:border-green-400/60 dark:hover:border-green-500/60 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl"
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-4 mb-4">
@@ -215,7 +233,7 @@ export const ContactSection = () => {
 
             {/* Location Card */}
             <motion.div 
-              className="group p-6 rounded-2xl bg-white/50 dark:bg-gray-800/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+              className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/60 dark:border-gray-700/60 hover:border-purple-400/60 dark:hover:border-purple-500/60 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl"
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-4 mb-4">
@@ -312,7 +330,7 @@ export const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white/50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all text-base"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-300/60 dark:border-gray-600/60 bg-white/90 dark:bg-gray-800/90 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/60 transition-all text-base shadow-sm hover:shadow-md focus:shadow-lg backdrop-blur-sm"
                     placeholder="What should I call you?"
                   />
                 </div>
@@ -331,7 +349,7 @@ export const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white/50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all text-base"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-gray-300/60 dark:border-gray-600/60 bg-white/90 dark:bg-gray-800/90 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/60 transition-all text-base shadow-sm hover:shadow-md focus:shadow-lg backdrop-blur-sm"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -351,7 +369,7 @@ export const ContactSection = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl border border-border/50 bg-white/50 dark:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 transition-all resize-none text-base"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-300/60 dark:border-gray-600/60 bg-white/90 dark:bg-gray-800/90 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/60 transition-all resize-none text-base shadow-sm hover:shadow-md focus:shadow-lg backdrop-blur-sm"
                   placeholder="Tell me about your project, idea, or just say hello..."
                 />
               </div>
@@ -360,7 +378,7 @@ export const ContactSection = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "w-full flex items-center justify-center gap-3 py-4 px-6 rounded-xl bg-primary text-white font-medium hover:bg-primary/90 transition-all duration-300 text-base group",
+                  "w-full flex items-center justify-center gap-3 py-4 px-6 rounded-xl bg-gradient-to-r from-primary to-purple-600 text-white font-medium hover:from-primary/90 hover:to-purple-600/90 transition-all duration-300 text-base group shadow-lg hover:shadow-xl border-2 border-primary/20 hover:border-primary/40",
                   isSubmitting && "opacity-80 cursor-not-allowed"
                 )}
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
