@@ -57,11 +57,12 @@ const skills = [
 ];
 
 const categories = [
-  { id: "all", label: "All Skills", color: "bg-gradient-to-r from-purple-500 to-pink-500" },
-  { id: "frontend", label: "Frontend", color: "bg-gradient-to-r from-blue-500 to-cyan-500" },
-  { id: "backend", label: "Backend", color: "bg-gradient-to-r from-green-500 to-emerald-500" },
-  { id: "tools", label: "Tools", color: "bg-gradient-to-r from-orange-500 to-yellow-500" },
+  { id: "all", label: "All Skills", color: "bg-gradient-to-r from-purple-300 to-pink-300" },
+  { id: "frontend", label: "Frontend", color: "bg-gradient-to-r from-blue-300 to-cyan-300" },
+  { id: "backend", label: "Backend", color: "bg-gradient-to-r from-green-300 to-emerald-300" },
+  { id: "tools", label: "Tools", color: "bg-gradient-to-r from-orange-300 to-yellow-300" },
 ];
+
 
 // Create an icon mapping object
 const iconImages = {
