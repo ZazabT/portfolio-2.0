@@ -56,7 +56,7 @@ export const AboutSection = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4">
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 pt-4 justify-center">
                   <a
                     href="#contact"
                     className="px-4 py-2 sm:px-6 sm:py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 text-center hover:shadow-md hover:scale-[1.02] active:scale-95 text-sm sm:text-base"
@@ -65,13 +65,14 @@ export const AboutSection = () => {
                   </a>
 
                   <a
-                    href="https://portfolio-ecru-ten-97.vercel.app/"
+                    href="/CV.pdf"
                     target="_blank"
+                    download="Tizazab_Ayana_CV.pdf"
                     rel="noopener noreferrer"
                     className="px-4 py-2 sm:px-6 sm:py-3 rounded-lg border border-muted hover:bg-muted/50 transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-md hover:scale-[1.02] active:scale-95 text-sm sm:text-base"
                   >
                     <Download className="h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-300 hover:translate-y-0.5" />
-                    Portfolio
+                    Download CV
                   </a>
                 </div>
               </div>
