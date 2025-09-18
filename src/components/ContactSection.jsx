@@ -109,12 +109,12 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/10">
+    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-br from-background via-secondary/5 to-background">
       {/* Enhanced background design */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-secondary/5 to-accent/5 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-pulse" style={{ animationDelay: '2s' }} />
         
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.05]">
@@ -161,7 +161,7 @@ export const ContactSection = () => {
             viewport={{ once: true }}
           >
             <span className="block">Let's have a</span>
-            <span className="block font-bold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+            <span className="block font-bold text-primary/90 hover:text-primary transition-colors duration-300">
               conversation
             </span>
           </motion.h2>
@@ -189,12 +189,12 @@ export const ContactSection = () => {
           >
             {/* Email Card */}
             <motion.div 
-              className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/60 dark:border-gray-700/60 hover:border-blue-400/60 dark:hover:border-blue-500/60 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl"
+              className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/60 dark:border-gray-700/60 hover:border-primary/60 dark:hover:border-primary/60 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl"
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
-                  <Mail className="h-6 w-6 text-blue-600" />
+                <div className="p-3 rounded-xl bg-primary/10 dark:bg-primary/20 group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors">
+                  <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Email</h3>
@@ -211,12 +211,12 @@ export const ContactSection = () => {
 
             {/* Phone Card */}
             <motion.div 
-              className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/60 dark:border-gray-700/60 hover:border-green-400/60 dark:hover:border-green-500/60 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl"
+              className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/60 dark:border-gray-700/60 hover:border-secondary/60 dark:hover:border-secondary/60 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl"
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-xl bg-green-50 dark:bg-green-900/20 group-hover:bg-green-100 dark:group-hover:bg-green-900/30 transition-colors">
-                  <Phone className="h-6 w-6 text-green-600" />
+                <div className="p-3 rounded-xl bg-secondary/10 dark:bg-secondary/20 group-hover:bg-secondary/20 dark:group-hover:bg-secondary/30 transition-colors">
+                  <Phone className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Phone</h3>
@@ -225,7 +225,7 @@ export const ContactSection = () => {
               </div>
               <a
                 href="tel:+251913173163"
-                className="text-primary hover:text-primary/80 transition-colors font-medium"
+                className="text-secondary hover:text-secondary/80 transition-colors font-medium"
               >
                 +251 913 173 163
               </a>
@@ -233,19 +233,19 @@ export const ContactSection = () => {
 
             {/* Location Card */}
             <motion.div 
-              className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/60 dark:border-gray-700/60 hover:border-purple-400/60 dark:hover:border-purple-500/60 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl"
+              className="group p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 border-2 border-gray-200/60 dark:border-gray-700/60 hover:border-accent/60 dark:hover:border-accent/60 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl"
               whileHover={{ y: -5 }}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-xl bg-purple-50 dark:bg-purple-900/20 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/30 transition-colors">
-                  <MapPin className="h-6 w-6 text-purple-600" />
+                <div className="p-3 rounded-xl bg-accent/10 dark:bg-accent/20 group-hover:bg-accent/20 dark:group-hover:bg-accent/30 transition-colors">
+                  <MapPin className="h-6 w-6 text-accent" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground">Location</h3>
                   <p className="text-sm text-muted-foreground">Based in</p>
                 </div>
               </div>
-              <span className="text-primary font-medium">
+              <span className="text-accent font-medium">
                 Addis Ababa, Ethiopia
               </span>
             </motion.div>
@@ -299,7 +299,7 @@ export const ContactSection = () => {
                 <MessageSquare className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium text-primary">Send a message</span>
               </motion.div>
-              <h3 className="text-2xl md:text-3xl font-light text-foreground mb-2">
+              <h3 className="text-2xl md:text-3xl font-light text-foreground/90 hover:text-primary transition-colors duration-300">
                 Let's start a conversation
               </h3>
               <p className="text-muted-foreground">
@@ -378,7 +378,7 @@ export const ContactSection = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "w-full flex items-center justify-center gap-3 py-4 px-6 rounded-xl bg-gradient-to-r from-primary to-purple-600 text-white font-medium hover:from-primary/90 hover:to-purple-600/90 transition-all duration-300 text-base group shadow-lg hover:shadow-xl border-2 border-primary/20 hover:border-primary/40",
+                  "relative w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium bg-gradient-to-r from-primary to-secondary rounded-xl group-hover:from-primary/90 group-hover:to-secondary/90 text-primary-foreground focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/90 shadow-lg hover:shadow-xl border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 group",
                   isSubmitting && "opacity-80 cursor-not-allowed"
                 )}
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
