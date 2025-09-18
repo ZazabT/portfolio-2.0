@@ -217,8 +217,8 @@ export const Navbar = () => {
           className={cn(
             "p-3 rounded-full transition-all duration-300 ease-in-out",
             "bg-white/90 dark:bg-gray-800/90 backdrop-blur-md",
-            "text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300",
-            "hover:bg-purple-50 dark:hover:bg-purple-900/30",
+            "text-[#5f7d79] hover:text-[#4e6a66] dark:text-[#7f9d99] dark:hover:text-[#8eb0ab]",
+            "hover:bg-[#5f7d7919] dark:hover:bg-[#5f7d7933]",
             "border border-gray-200/50 dark:border-gray-600/50",
             "shadow-lg hover:shadow-xl",
             "group relative overflow-hidden",
@@ -251,7 +251,7 @@ export const Navbar = () => {
               <VolumeX className="w-5 h-5" />
             )}
           </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-100/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#5f7d7933] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </motion.button>
       </motion.div>
 
@@ -277,7 +277,7 @@ export const Navbar = () => {
               "border border-gray-200/60 dark:border-gray-600/60",
               "relative overflow-hidden"
             )}>
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/3 via-purple-500/3 to-pink-500/3 rounded-xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/3 via-[#5f7d7933] to-pink-500/3 rounded-xl" />
               
               <div className="flex space-x-1 items-center relative z-10">
                 {navItems.map((item, index) => (
@@ -289,7 +289,7 @@ export const Navbar = () => {
                       "flex flex-col items-center group",
                       "min-w-[50px] md:min-w-[55px]",
                       activeSection === item.href
-                        ? "bg-gradient-to-br from-blue-400 to-purple-400 text-white shadow-md"
+                        ? "bg-gradient-to-br from-blue-300 to-[#5f7d79] text-white shadow-md"
                         : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-100/80 dark:hover:bg-gray-700/40"
                     )}
                     aria-label={item.name}
@@ -301,7 +301,7 @@ export const Navbar = () => {
                   >
                     {activeSection === item.href && (
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 rounded-lg"
+                        className="absolute inset-0 bg-gradient-to-br from-blue-300 to-[#5f7d79] rounded-lg"
                         layoutId="activeTab"
                         transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />

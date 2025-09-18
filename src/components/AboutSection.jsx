@@ -82,19 +82,17 @@ export const AboutSection = () => {
           {/* Right Column - Details */}
           <div className="lg:w-1/2 space-y-4 md:space-y-6">
             <div className="bg-muted/20 border border-muted rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm transition-all duration-500 hover:shadow-xl hover:border-primary/30 hover:bg-muted/30 hover:-translate-y-1">
-              <div className="flex items-start gap-3 md:gap-4">
-                <div className="p-2 md:p-3 rounded-lg bg-primary/10 text-primary transition-all duration-300 hover:bg-primary/20 hover:scale-110">
-                  <Code className="h-5 w-5 md:h-6 md:w-6 transition-transform duration-300 hover:rotate-12" />
-                </div>
-                <div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 transition-colors duration-300 hover:text-primary">Development Philosophy</h3>
-                  <p className="text-sm md:text-base text-muted-foreground transition-colors duration-300 hover:text-foreground/80">
-                    I believe in writing clean, maintainable code with thorough documentation.
-                    My development process emphasizes testing, performance optimization, and
-                    creating scalable solutions that solve real-world problems.
-                  </p>
-                </div>
+            <div className="flex items-start gap-3 md:gap-4">
+              <div className="p-2 md:p-3 rounded-lg bg-primary/10 text-primary transition-all duration-300 hover:bg-primary/20 hover:scale-110">
+                <Code className="h-5 w-5 md:h-6 md:w-6 transition-transform duration-300 hover:rotate-12" />
               </div>
+              <div>
+                <h3 className="text-lg md:text-xl font-bold mb-2 transition-colors duration-300 hover:text-primary">My Approach</h3>
+                <p className="text-sm md:text-base text-muted-foreground transition-colors duration-300 hover:text-foreground/80">
+                  I write clean, easy-to-read code that works well. I focus on making things that are fast, reliable, and easy to update. I love solving problems and building things that people enjoy using.
+                </p>
+              </div>
+            </div>
             </div>
 
             <div className="bg-muted/20 border border-muted rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm transition-all duration-500 hover:shadow-xl hover:border-primary/30 hover:bg-muted/30 hover:-translate-y-1">
