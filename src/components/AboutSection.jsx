@@ -40,12 +40,11 @@ export const AboutSection = () => {
               </div>
 
               <div className="space-y-4 md:space-y-6">
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed transition-colors duration-300 group-hover:text-foreground/80">
-                  I specialize in building modern web and mobile applications with a focus on performance,
-                  accessibility, and user experience. My approach combines technical expertise
-                  with creative problem-solving to deliver impactful digital solutions across various platforms.
-                </p>
-
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed transition-colors duration-300 group-hover:text-foreground/80">
+                I build web and mobile apps that are fast, easy to use, and look good.  
+                I like solving problems and making things people enjoy using.  
+                In my free time, I play games—so I still stick with Windows instead of Mac or Linux!
+              </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                   <div className="bg-background p-3 sm:p-4 rounded-lg border border-muted transition-all duration-300 hover:border-primary/50 hover:shadow-md hover:scale-[1.02]">
                     <h4 className="text-sm sm:text-base font-semibold text-primary transition-colors duration-300 hover:text-primary/80">Frontend</h4>
