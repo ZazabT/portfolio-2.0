@@ -34,7 +34,7 @@ const projects = [
     description: "A modern event website with a custom UI, SMS payment integration, and seamless customer-focused experience for event management. Built with Laravel, Inertia.js, and Blade templates.",
     image: "/projects/lekene.png",
     tags: ["Laravel", "Inertia.js", "Blade", "MySQL", "SMS Gateway"],
-    demoUrl: "#",
+    demoUrl: "lekene.et",
     githubUrl: "#",
     featured: true,
     accentColor: "from-green-500 to-emerald-600"
@@ -44,7 +44,7 @@ const projects = [
     title: "Yegna (Airbnb Clone)",
     category: "Accommodation",
     description: "Full-stack accommodation booking platform with advanced search and booking features",
-    image: "/projects/project2.png",
+    image: "/projects/yegna.jpg",
     tags: ["Laravel", "React", "MySQL", "Tailwind CSS"],
     demoUrl: "#",
     githubUrl: "https://github.com/ZazabT/ye-gan",
@@ -56,7 +56,7 @@ const projects = [
     title: "Ethio-fund",
     category: "Crowdfunding",
     description: "Crowdfunding platform for Ethiopian projects with secure payment integration",
-    image: "/projects/project3.png",
+    image: "/projects/ethiofund.png",
     tags: ["Laravel", "MySQL", "Chapa", "Tailwind CSS"],
     demoUrl: "#",
     githubUrl: "https://github.com/ZazabT/ethiofund10ChapaTry",
@@ -68,7 +68,7 @@ const projects = [
     title: "Tafach Recipe",
     category: "Food & Recipe",
     description: "Ethiopian food recipe sharing app with community features and recipe management",
-    image: "/projects/project4.png",
+    image: "/projects/tafach.jpg",
     tags: ["React", "Node.js", "MongoDB", "Express"],
     demoUrl: "#",
     githubUrl: "https://github.com/ZazabT/Tafach",
@@ -79,7 +79,7 @@ const projects = [
     title: "Voice Assistant",
     category: "Mobile App",
     description: "Mobile voice assistant app powered by AI with natural language processing",
-    image: "/projects/project5.png",
+    image: "/projects/voice.jpg",
     tags: ["Flutter", "Dart", "Gemini AI", "Firebase"],
     demoUrl: "#",
     githubUrl: "https://github.com/ZazabT/Voice-Assistant",
@@ -90,12 +90,25 @@ const projects = [
     title: "Job Portal",
     category: "SaaS",
     description: "Modern job listing platform with advanced filtering and application management",
-    image: "/projects/project6.png",
+    image: "/projects/jobhub.png",
     tags: ["Next.js", "Drizzle ORM", "PostgreSQL", "Tailwind CSS"],
     demoUrl: "#",
     githubUrl: "https://github.com/ZazabT/jobhub",
     accentColor: "from-rose-500 to-pink-600"
+  },
+  {
+    id: 9,
+    title: "Crime Records System",
+    category: "Public Safety",
+    description: "A Laravel 12 + React + Inertia app for managing public records of severe crimes including sex offenses, cannibalism, and organ trafficking. Supports missing person reports, admin-controlled wanted lists with rewards, and advanced filtering.",
+    image: "/projects/flagged.png",
+    tags: ["Laravel 12", "React", "Inertia.js", "MySQL", "Tailwind CSS"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/ZazabT/flagged",
+    featured: true,
+    accentColor: "from-red-500 to-rose-600"
   }
+  
 ];
 
 const categoryColors = {
@@ -218,9 +231,9 @@ export const ProjectsSection = () => {
         </motion.div>
 
         {/* Interactive filter tabs - Desktop */}
-        <div className="hidden md:flex justify-center mb-12">
+        <div className="hidden md:flex justify-center mb-10">
           <motion.div 
-            className="inline-flex bg-muted p-1 rounded-full border border-muted-foreground/10 shadow-sm"
+            className="inline-flex bg-muted p-0.5 rounded-full border border-muted-foreground/10 shadow-sm"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
@@ -233,7 +246,7 @@ export const ProjectsSection = () => {
                   setActiveFilter(category);
                   setShowAll(false);
                 }}
-                className={`px-5 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`px-3 py-1 text-xs rounded-full font-medium transition-all duration-300 ${
                   activeFilter === category
                     ? "bg-background text-foreground shadow-sm"
                     : "text-muted-foreground hover:text-foreground"
