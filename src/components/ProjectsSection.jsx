@@ -5,18 +5,42 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 const projects = [
   {
     id: 1,
+    title: "Site.et",
+    category: "CRM & Odoo Integration",
+    description: "A modern Customer Relationship Management (CRM) platform designed to seamlessly integrate with Odoo ERP. Features deep Odoo integration, custom modules, and a responsive UI built with Laravel, React, and MySQL.",
+    image: "/projects/site.png",
+    tags: ["Laravel", "React", "MySQL", "Odoo", "REST API"],
+    demoUrl: "site.et",
+    githubUrl: "#",
+    featured: true,
+    accentColor: "from-blue-500 to-indigo-600"
+  },
+  {
+    id: 2,
     title: "Ethio-vibe",
     category: "E-commerce",
-    description: "Full-featured e-commerce platform with modern UI and seamless shopping experience",
-    image: "/projects/project1.png",
-    tags: ["React", "Node.js", "Express", "Tailwind CSS", "MongoDB"],
+    description: "Modern Ethiopian clothing e-commerce platform with a responsive frontend, comprehensive admin dashboard, and complete e-commerce functionality including shopping cart, secure checkout, and user authentication.",
+    image: "/projects/ethiovibe.png",
+    tags: ["React", "Node.js", "Redux", "MongoDB", "Express"],
     demoUrl: "https://ehiovibe.vercel.app/",
     githubUrl: "https://github.com/ZazabT/ethiovibe_frontend",
     featured: true,
     accentColor: "from-purple-500 to-indigo-600"
   },
   {
-    id: 2,
+    id: 3,
+    title: "Lekene",
+    category: "Event Management",
+    description: "A modern event website with a custom UI, SMS payment integration, and seamless customer-focused experience for event management. Built with Laravel, Inertia.js, and Blade templates.",
+    image: "/projects/lekene.png",
+    tags: ["Laravel", "Inertia.js", "Blade", "MySQL", "SMS Gateway"],
+    demoUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    accentColor: "from-green-500 to-emerald-600"
+  },
+  {
+    id: 4,
     title: "Yegna (Airbnb Clone)",
     category: "Accommodation",
     description: "Full-stack accommodation booking platform with advanced search and booking features",
@@ -28,7 +52,7 @@ const projects = [
     accentColor: "from-blue-500 to-cyan-600"
   },
   {
-    id: 3,
+    id: 5,
     title: "Ethio-fund",
     category: "Crowdfunding",
     description: "Crowdfunding platform for Ethiopian projects with secure payment integration",
@@ -40,7 +64,7 @@ const projects = [
     accentColor: "from-emerald-500 to-teal-600"
   },
   {
-    id: 4,
+    id: 6,
     title: "Tafach Recipe",
     category: "Food & Recipe",
     description: "Ethiopian food recipe sharing app with community features and recipe management",
@@ -51,7 +75,7 @@ const projects = [
     accentColor: "from-amber-500 to-orange-600"
   },
   {
-    id: 5,
+    id: 7,
     title: "Voice Assistant",
     category: "Mobile App",
     description: "Mobile voice assistant app powered by AI with natural language processing",
@@ -62,7 +86,7 @@ const projects = [
     accentColor: "from-violet-500 to-purple-600"
   },
   {
-    id: 6,
+    id: 8,
     title: "Job Portal",
     category: "SaaS",
     description: "Modern job listing platform with advanced filtering and application management",
@@ -80,7 +104,9 @@ const categoryColors = {
   "Crowdfunding": "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200",
   "Food & Recipe": "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200",
   "Mobile App": "bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-200",
-  "SaaS": "bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200"
+  "SaaS": "bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200",
+  "CRM & Odoo Integration": "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
+  "Event Management": "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
 };
 
 export const ProjectsSection = () => {
