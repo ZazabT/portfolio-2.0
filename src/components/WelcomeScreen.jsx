@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const WelcomeScreen = ({ onWelcomeComplete }) => {
@@ -30,7 +29,7 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
   const currentColors = colors[theme] || colors.dark;
   const portfolioUrl = "https://portfolio-2.0.vercel.app";
   const welcomeMessages = [
-    "Crafting digital experiences",
+    "Backend Developer",
     "Software Engineer",
     "Full-stack development"
   ];
@@ -182,7 +181,6 @@ const WelcomeScreen = ({ onWelcomeComplete }) => {
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                 >
-                  <Sparkles className="h-3 w-3 md:h-4 md:w-4" />
                   {welcomeMessages[phase % welcomeMessages.length]}
                 </motion.div>
               </motion.div>
