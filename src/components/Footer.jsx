@@ -45,7 +45,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-tr from-gray-50 dark:from-gray-900 to-white dark:to-gray-800 py-16 relative overflow-hidden">
+    <footer className="bg-gradient-to-tr from-gray-50 dark:from-gray-900 to-white dark:to-gray-800 pt-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Main Container */}
         <motion.div
