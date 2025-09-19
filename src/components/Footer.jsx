@@ -49,19 +49,24 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Main Container */}
         <motion.div
-          className="backdrop-blur-lg bg-white/50 dark:bg-gray-900/60 rounded-2xl border border-white/20 dark:border-gray-700/50 shadow-xl p-10 grid grid-cols-1 md:grid-cols-4 gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
           {/* Branding & Socials */}
-          <motion.div variants={itemVariants} className="space-y-5">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-wide">TIZAZAB</h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
-              Full Stack Developer crafting seamless & meaningful digital experiences.
+          <motion.div variants={itemVariants} className="space-y-6">
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 rounded-full bg-primary"></div>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
+                TIZAZAB
+              </h3>
+            </div>
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+             Tizazab Ayana — Full-Stack Developer & Web Designer. Always learning, building, and creating.
             </p>
-            <div className="flex space-x-5">
+            <div className="flex space-x-4 pt-2">
               {socialLinks.map((social, idx) => (
                 <motion.a
                   key={idx}
@@ -69,8 +74,8 @@ export const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 hover:bg-primary/80 dark:hover:bg-primary/70 text-gray-800 dark:text-white shadow-sm transition-all duration-300"
-                  whileHover={{ scale: 1.2, y: -3 }}
+                  className="group p-2 rounded-lg bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300"
+                  whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {social.icon}
@@ -81,18 +86,24 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-gray-900 dark:text-white font-semibold mb-5 uppercase tracking-wider text-sm">Quick Links</h4>
+            <h4 className="text-gray-900 dark:text-white font-medium mb-6 text-sm uppercase tracking-wider flex items-center">
+              <span className="w-4 h-0.5 bg-primary mr-3"></span>
+              Navigation
+            </h4>
             <ul className="space-y-3">
               {quickLinks.map((link, idx) => (
                 <motion.li 
                   key={idx}
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 250 }}
-                  className="text-gray-700 dark:text-gray-300 text-sm relative group"
+                  whileHover={{ x: 3 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className="text-gray-600 dark:text-gray-400 text-sm group"
                 >
-                  <a href={link.href} className="hover:text-primary dark:hover:text-primary transition-colors duration-300">
+                  <a 
+                    href={link.href} 
+                    className="flex items-center hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+                  >
+                    {link.icon}
                     {link.name}
-                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300"></span>
                   </a>
                 </motion.li>
               ))}
@@ -101,16 +112,25 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants}>
-            <h4 className="text-gray-900 dark:text-white font-semibold mb-5 uppercase tracking-wider text-sm">Contact</h4>
-            <ul className="space-y-3">
+            <h4 className="text-gray-900 dark:text-white font-medium mb-6 text-sm uppercase tracking-wider flex items-center">
+              <span className="w-4 h-0.5 bg-primary mr-3"></span>
+              Get in Touch
+            </h4>
+            <ul className="space-y-4">
               {contactInfo.map((info, idx) => (
                 <motion.li 
                   key={idx}
-                  whileHover={{ scale: 1.05 }}
-                  className="flex items-center space-x-3 p-3 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-sm"
+                  className="flex items-start space-x-3 group"
+                  whileHover={{ x: 3 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  <span className="text-gray-700 dark:text-gray-200">{info.icon}</span>
-                  <a href={info.href} className="text-gray-700 dark:text-gray-200 hover:text-primary transition-colors duration-300 text-sm">
+                  <span className="mt-0.5 text-gray-500 group-hover:text-primary transition-colors">
+                    {info.icon}
+                  </span>
+                  <a 
+                    href={info.href} 
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+                  >
                     {info.text}
                   </a>
                 </motion.li>
@@ -119,28 +139,38 @@ export const Footer = () => {
           </motion.div>
 
           {/* Newsletter */}
-          <motion.div variants={itemVariants} className="space-y-5">
-            <h4 className="text-gray-900 dark:text-white font-semibold text-sm uppercase tracking-wider">Newsletter</h4>
-            <p className="text-gray-700 dark:text-gray-300 text-sm">Subscribe for updates on my latest projects & articles.</p>
-            <form className="relative">
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                className="w-full py-3 px-4 pr-28 text-sm rounded-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/60 transition-all duration-300"
-              />
-              <button 
+          <motion.div variants={itemVariants}>
+            <h4 className="text-gray-900 dark:text-white font-medium mb-6 text-sm uppercase tracking-wider flex items-center">
+              <span className="w-4 h-0.5 bg-primary mr-3"></span>
+              Stay Updated
+            </h4>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Subscribe to my newsletter for the latest updates and insights.
+            </p>
+            <form className="space-y-3">
+              <div>
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="w-full px-4 py-2 text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent text-gray-800 dark:text-gray-200 placeholder-gray-400"
+                  required
+                />
+              </div>
+              <motion.button
                 type="submit"
-                className="absolute top-1/2 -translate-y-1/2 right-1 bg-primary text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition-all duration-300 shadow-lg"
+                className="w-full px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-primary to-primary/80 rounded-lg hover:opacity-90 transition-opacity"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Subscribe
-              </button>
+              </motion.button>
             </form>
           </motion.div>
         </motion.div>
 
         {/* Bottom Bar */}
         <motion.div 
-          className="mt-14 border-t border-gray-200 dark:border-gray-700/50 flex flex-col sm:flex-row items-center justify-between text-gray-700 dark:text-gray-300 text-xs space-y-3 sm:space-y-0"
+          className="mt-20 py-6 border-t border-gray-200 dark:border-gray-700/50 flex flex-col sm:flex-row items-center justify-between text-gray-700 dark:text-gray-300 text-xs space-y-3 sm:space-y-0"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
