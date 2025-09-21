@@ -31,18 +31,20 @@ import dartIcon from "@/assets/icons/dart.png";
 import chapaIcon from "@/assets/icons/chapa.png";
 import drizzleIcon from "@/assets/icons/drizzle-orm.png";
 import tailwindIcon from "@/assets/icons/tailwind.png";
+import djangoIcon from "@/assets/icons/django.png";
+
+
 
 const skills = [
   // Frontend
   { name: "HTML5", level: 95, category: "frontend", icon: "html" },
   { name: "CSS3", level: 90, category: "frontend", icon: "css" },
-  { name: "Tailwind CSS", level: 90, category: "tools", icon: "tailwind" },
   { name: "JavaScript", level: 90, category: "frontend", icon: "javascript" },
   { name: "TypeScript", level: 85, category: "frontend", icon: "typescript" },
   { name: "React", level: 90, category: "frontend", icon: "react" },
   { name: "Next.js", level: 80, category: "frontend", icon: "nextjs" },
   { name: "Flutter", level: 85, category: "frontend", icon: "flutter" },
-  { name: "Dart", level: 80, category: "frontend", icon: "dart" },
+  { name: "Dart", level: 80, category: "backend", icon: "dart" },
 
   // Backend
   { name: "Node.js", level: 90, category: "backend", icon: "nodejs" },
@@ -52,6 +54,7 @@ const skills = [
   { name: "PostgreSQL", level: 75, category: "backend", icon: "postgresql" },
   { name: "MySQL", level: 85, category: "backend", icon: "mysql" },
   { name: "PHP", level: 80, category: "backend", icon: "php" }, 
+  {name: "Django", level: 60, category: "backend", icon: "django"},
 
   // Tools & Others
   { name: "Git", level: 90, category: "tools", icon: "git" },
@@ -61,6 +64,7 @@ const skills = [
   { name: "Tailwind CSS", level: 90, category: "tools", icon: "tailwind" },
   { name: "Chapa", level: 70, category: "tools", icon: "chapa" }, 
   { name: "Drizzle ORM", level: 70, category: "tools", icon: "drizzle" }, 
+  { name: "Docker", level: 60, category: "tools", icon: "docker" },
 ];
 
 const categories = [
@@ -102,6 +106,7 @@ const iconImages = {
   chapa: chapaIcon,
   drizzle: drizzleIcon,
   tailwind: tailwindIcon,
+  django: djangoIcon,
 };
 
 const SkillBar = ({ level }) => {
