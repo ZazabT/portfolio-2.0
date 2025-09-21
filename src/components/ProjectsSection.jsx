@@ -41,6 +41,18 @@ const projects = [
   },
   {
     id: 4,
+    title: "Crime Records System",
+    category: "Public Safety",
+    description: "A Laravel 12 + React + Inertia app for managing public records of severe crimes including sex offenses, cannibalism, and organ trafficking. Supports missing person reports, admin-controlled wanted lists with rewards, and advanced filtering.",
+    image: "/projects/flagged.png",
+    tags: ["Laravel 12", "React", "Inertia.js", "MySQL", "Tailwind CSS"],
+    demoUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    accentColor: "from-red-500 to-rose-600"
+  },
+  {
+    id: 5,
     title: "Yegna (Airbnb Clone)",
     category: "Accommodation",
     description: "Full-stack accommodation booking platform with advanced search and booking features",
@@ -52,7 +64,7 @@ const projects = [
     accentColor: "from-blue-500 to-cyan-600"
   },
   {
-    id: 5,
+    id: 6,
     title: "Ethio-fund",
     category: "Crowdfunding",
     description: "Crowdfunding platform for Ethiopian projects with secure payment integration",
@@ -64,7 +76,7 @@ const projects = [
     accentColor: "from-emerald-500 to-teal-600"
   },
   {
-    id: 6,
+    id: 7,
     title: "Tafach Recipe",
     category: "Food & Recipe",
     description: "Ethiopian food recipe sharing app with community features and recipe management",
@@ -75,7 +87,7 @@ const projects = [
     accentColor: "from-amber-500 to-orange-600"
   },
   {
-    id: 7,
+    id: 8,
     title: "Voice Assistant",
     category: "Mobile App",
     description: "Mobile voice assistant app powered by AI with natural language processing",
@@ -86,7 +98,7 @@ const projects = [
     accentColor: "from-violet-500 to-purple-600"
   },
   {
-    id: 8,
+    id: 9,
     title: "Job Portal",
     category: "SaaS",
     description: "Modern job listing platform with advanced filtering and application management",
@@ -96,18 +108,6 @@ const projects = [
     githubUrl: "https://github.com/ZazabT/jobhub",
     accentColor: "from-rose-500 to-pink-600"
   },
-  {
-    id: 9,
-    title: "Crime Records System",
-    category: "Public Safety",
-    description: "A Laravel 12 + React + Inertia app for managing public records of severe crimes including sex offenses, cannibalism, and organ trafficking. Supports missing person reports, admin-controlled wanted lists with rewards, and advanced filtering.",
-    image: "/projects/flagged.png",
-    tags: ["Laravel 12", "React", "Inertia.js", "MySQL", "Tailwind CSS"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/ZazabT/flagged",
-    featured: true,
-    accentColor: "from-red-500 to-rose-600"
-  }
   
 ];
 
