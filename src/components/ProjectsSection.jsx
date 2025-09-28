@@ -44,7 +44,7 @@ const projects = [
     title: "Crime Records System",
     category: "Public Safety",
     description: "A Laravel 12 + React + Inertia app for managing public records of severe crimes including sex offenses, cannibalism, and organ trafficking. Supports missing person reports, admin-controlled wanted lists with rewards, and advanced filtering.",
-    image: "/projects/flagged.png",
+    image: "/projects/flagged.jpg",
     tags: ["Laravel 12", "React", "Inertia.js", "MySQL", "Tailwind CSS"],
     demoUrl: "#",
     githubUrl: "#",
