@@ -10,7 +10,7 @@ const projects = [
     description: "A modern Customer Relationship Management (CRM) platform designed to seamlessly integrate with Odoo ERP. Features deep Odoo integration, custom modules, and a responsive UI built with Laravel, React, and MySQL.",
     image: "/projects/site.png",
     tags: ["Laravel", "React", "MySQL", "Odoo", "REST API"],
-    demoUrl: "site.et",
+    demoUrl: "https://site.et",
     githubUrl: "#",
     featured: true,
     accentColor: "from-blue-500 to-indigo-600"
@@ -34,7 +34,7 @@ const projects = [
     description: "A modern event website with a custom UI, SMS payment integration, and seamless customer-focused experience for event management. Built with Laravel, Inertia.js, and Blade templates.",
     image: "/projects/lekene.png",
     tags: ["Laravel", "Inertia.js", "Blade", "MySQL", "SMS Gateway"],
-    demoUrl: "lekene.et",
+    demoUrl: "https://lekene.et",
     githubUrl: "#",
     featured: true,
     accentColor: "from-green-500 to-emerald-600"
