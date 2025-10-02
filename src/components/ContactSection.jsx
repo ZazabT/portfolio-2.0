@@ -100,7 +100,7 @@ export const ContactSection = () => {
     } catch (error) {
       toast({
         title: "Oops! Something went wrong",
-        description: "Please try again or email me directly at tizazabayana@gmail.com",
+        description: "Please try again or email me directly at tizazab752@gmail.com",
         variant: "destructive"
       });
     } finally {
@@ -202,10 +202,10 @@ export const ContactSection = () => {
                 </div>
               </div>
               <a
-                href="mailto:tizazabayana@gmail.com"
+                href="mailto:tizazab752@gmail.com"
                 className="text-primary hover:text-primary/80 transition-colors font-medium"
               >
-                tizazabayana@gmail.com
+                tizazab752@gmail.com
               </a>
             </motion.div>
 
