@@ -6,6 +6,7 @@ import {
   Github,
   Mail,
   Phone,
+  Heart
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -14,7 +15,7 @@ export const Footer = () => {
 
   const socialLinks = [
     { icon: <Github size={20} />, href: "https://github.com/ZazabT", label: "GitHub" },
-    { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
+    { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/codewithkinu", label: "LinkedIn" },
     { icon: <Instagram size={20} />, href: "#", label: "Instagram" },
     { icon: <Youtube size={20} />, href: "#", label: "YouTube" },
   ];
@@ -27,171 +28,131 @@ export const Footer = () => {
   ];
 
   const contactInfo = [
-    { icon: <Mail size={18} />, text: "tizazabayana@gmail.com", href: "mailto:tizazabayana@gmail.com" },
+    { icon: <Mail size={18} />, text: "tizazab752@gmail.com", href: "mailto:tizazab752@gmail.com" },
     { icon: <Phone size={18} />, text: "+251 913 173 163", href: "tel:+251913173163" },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.3 } 
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } }
-  };
-
   return (
-    <footer className="bg-gradient-to-tr from-gray-50 dark:from-gray-900 to-white dark:to-gray-800 pt-16 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Main Container */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
-          {/* Branding & Socials */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 rounded-full bg-primary"></div>
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
+    <footer className="relative bg-white dark:bg-black text-gray-900 dark:text-white pt-20 pb-10 overflow-hidden border-t border-gray-200 dark:border-white/10 transition-colors duration-300">
+      {/* Background Gradients */}
+      <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary/10 dark:bg-primary/20 rounded-full blur-[120px] -z-10 opacity-20"></div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Brand Column */}
+          <div className="space-y-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-2"
+            >
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold">
+                T
+              </div>
+              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-white/60">
                 TIZAZAB
-              </h3>
-            </div>
-            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-             Tizazab Ayana — Full-Stack Developer & Web Designer. Always learning, building, and creating.
+              </span>
+            </motion.div>
+            <p className="text-gray-600 dark:text-zinc-400 leading-relaxed">
+              Crafting digital experiences with passion and precision. Let's build something extraordinary together.
             </p>
-            <div className="flex space-x-4 pt-2">
+            <div className="flex gap-4">
               {socialLinks.map((social, idx) => (
                 <motion.a
                   key={idx}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="group p-2 rounded-lg bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all duration-300"
-                  whileHover={{ y: -2 }}
+                  className="p-2 rounded-lg bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:border-primary/50 hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-300"
+                  whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {social.icon}
                 </motion.a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          {/* Quick Links */}
-          <motion.div variants={itemVariants}>
-            <h4 className="text-gray-900 dark:text-white font-medium mb-6 text-sm uppercase tracking-wider flex items-center">
-              <span className="w-4 h-0.5 bg-primary mr-3"></span>
-              Navigation
-            </h4>
-            <ul className="space-y-3">
+          {/* Navigation */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white">Navigation</h3>
+            <ul className="space-y-4">
               {quickLinks.map((link, idx) => (
-                <motion.li 
-                  key={idx}
-                  whileHover={{ x: 3 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className="text-gray-600 dark:text-gray-400 text-sm group"
-                >
-                  <a 
-                    href={link.href} 
-                    className="flex items-center hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+                <li key={idx}>
+                  <a
+                    href={link.href}
+                    className="text-gray-600 dark:text-zinc-400 hover:text-primary transition-colors flex items-center gap-2 group"
                   >
-                    {link.icon}
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-zinc-700 group-hover:bg-primary transition-colors"></span>
                     {link.name}
                   </a>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Contact Info */}
-          <motion.div variants={itemVariants}>
-            <h4 className="text-gray-900 dark:text-white font-medium mb-6 text-sm uppercase tracking-wider flex items-center">
-              <span className="w-4 h-0.5 bg-primary mr-3"></span>
-              Get in Touch
-            </h4>
+          {/* Contact */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white">Contact</h3>
             <ul className="space-y-4">
               {contactInfo.map((info, idx) => (
-                <motion.li 
-                  key={idx}
-                  className="flex items-start space-x-3 group"
-                  whileHover={{ x: 3 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <span className="mt-0.5 text-gray-500 group-hover:text-primary transition-colors">
-                    {info.icon}
-                  </span>
-                  <a 
-                    href={info.href} 
-                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+                <li key={idx}>
+                  <a
+                    href={info.href}
+                    className="flex items-start gap-3 text-gray-600 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white transition-colors group"
                   >
-                    {info.text}
+                    <span className="mt-1 p-1 rounded bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 group-hover:border-primary/50 transition-colors">
+                      {info.icon}
+                    </span>
+                    <span className="flex-1 break-all">{info.text}</span>
                   </a>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
           {/* Newsletter */}
-          <motion.div variants={itemVariants}>
-            <h4 className="text-gray-900 dark:text-white font-medium mb-6 text-sm uppercase tracking-wider flex items-center">
-              <span className="w-4 h-0.5 bg-primary mr-3"></span>
-              Stay Updated
-            </h4>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-              Subscribe to my newsletter for the latest updates and insights.
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white">Stay Updated</h3>
+            <p className="text-gray-600 dark:text-zinc-400 mb-4 text-sm">
+              Subscribe to my newsletter for the latest updates.
             </p>
-            <form className="space-y-3">
-              <div>
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="w-full px-4 py-2 text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent text-gray-800 dark:text-gray-200 placeholder-gray-400"
-                  required
-                />
-              </div>
-              <motion.button
+            <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-zinc-900/50 border border-gray-200 dark:border-zinc-800 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+              />
+              <button
                 type="submit"
-                className="w-full px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-primary to-primary/80 rounded-lg hover:opacity-90 transition-opacity"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="w-full py-3 px-4 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-black font-semibold hover:bg-gray-800 dark:hover:bg-zinc-200 transition-colors"
               >
                 Subscribe
-              </motion.button>
+              </button>
             </form>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Bottom Bar */}
-        <motion.div 
-          className="mt-20 py-6 border-t border-gray-200 dark:border-gray-700/50 flex flex-col sm:flex-row items-center justify-between text-gray-700 dark:text-gray-300 text-xs space-y-3 sm:space-y-0"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <p>© {currentYear} Tizazab Ayana. All rights reserved.</p>
-          <div className="flex items-center space-x-4">
-            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms</a>
-            <a href="#" className="hover:text-primary transition-colors">Cookies</a>
-            <motion.a
-              href="#hero"
-              aria-label="Back to top"
-              className="p-2 rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300 shadow-lg"
-              whileHover={{ y: -4, scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+        <div className="pt-8 border-t border-gray-200 dark:border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 dark:text-zinc-500 text-sm flex items-center gap-1">
+            © {currentYear} Tizazab Ayana. Made with <Heart size={14} className="text-red-500 fill-red-500" /> in Ethiopia.
+          </p>
+
+          <div className="flex items-center gap-6">
+            <a href="#" className="text-sm text-gray-500 dark:text-zinc-500 hover:text-gray-900 dark:hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="text-sm text-gray-500 dark:text-zinc-500 hover:text-gray-900 dark:hover:text-white transition-colors">Terms of Service</a>
+            <motion.button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="p-3 rounded-full bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:border-primary/50 transition-all"
+              whileHover={{ y: -3 }}
             >
-              <ArrowUp size={16} />
-            </motion.a>
+              <ArrowUp size={20} />
+            </motion.button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
