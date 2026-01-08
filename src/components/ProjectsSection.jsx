@@ -5,18 +5,6 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 const projects = [
   {
     id: 1,
-    title: "MerkatoX",
-    category: "E-commerce Platform",
-    description: "A modern e-commerce platform built with Next.js featuring product listings, search functionality, and a shopping cart. Integrated with a dummy product API to demonstrate real-world API consumption and state management.",
-    image: "/projects/merkato.png",
-    tags: ["Next.js", "React", "Tailwind CSS", "DummyJSON API", "Context API"],
-    demoUrl: "https://merkatox.vercel.app/",
-    githubUrl: "https://github.com/ZazabT/merkatox",
-    featured: true,
-    accentColor: "from-rose-500 to-pink-600"
-  },
-  {
-    id: 2,
     title: "Site.et",
     category: "CRM & Odoo Integration",
     description: "A modern Customer Relationship Management (CRM) platform designed to seamlessly integrate with Odoo ERP. Features deep Odoo integration, custom modules, and a responsive UI built with Laravel, React, and MySQL.",
@@ -28,7 +16,7 @@ const projects = [
     accentColor: "from-blue-500 to-indigo-600"
   },
   {
-    id: 3,
+    id: 2,
     title: "Ethio-vibe",
     category: "E-commerce",
     description: "Modern Ethiopian clothing e-commerce platform with a responsive frontend, comprehensive admin dashboard, and complete e-commerce functionality including shopping cart, secure checkout, and user authentication.",
@@ -53,6 +41,18 @@ const projects = [
   },
   {
     id: 4,
+    title: "Spare Part ERP System",
+    category: "ERP / Inventory",
+    description: "A full-featured ERP system built for a Chinese spare parts company to manage products, orders, carts, invoicing, accounting, and packaging workflows. Designed to handle end-to-end spare part operations with scalable and efficient management tools.",
+    image: "/projects/spar.png",
+    tags: ["Laravel", "MySQL", "React", "Redux"],
+    demoUrl: "https://erp.learnica.net/",
+    githubUrl: "Private",
+    featured: true,
+    accentColor: "from-blue-500 to-indigo-600"
+  },
+  {
+    id: 5,
     title: "Crime Records System",
     category: "Public Safety",
     description: "A Laravel 12 + React + Inertia app for managing public records of severe crimes including sex offenses, cannibalism, and organ trafficking. Supports missing person reports, admin-controlled wanted lists with rewards, and advanced filtering.",
@@ -64,7 +64,7 @@ const projects = [
     accentColor: "from-red-500 to-rose-600"
   },
   {
-    id: 5,
+    id: 6,
     title: "Yegna (Airbnb Clone)",
     category: "Accommodation",
     description: "Full-stack accommodation booking platform with advanced search and booking features",
@@ -76,7 +76,7 @@ const projects = [
     accentColor: "from-blue-500 to-cyan-600"
   },
   {
-    id: 6,
+    id: 7,
     title: "Ethio-fund",
     category: "Crowdfunding",
     description: "Crowdfunding platform for Ethiopian projects with secure payment integration",
@@ -88,7 +88,7 @@ const projects = [
     accentColor: "from-emerald-500 to-teal-600"
   },
   {
-    id: 7,
+    id: 8,
     title: "Tafach Recipe",
     category: "Food & Recipe",
     description: "Ethiopian food recipe sharing app with community features and recipe management",
@@ -99,7 +99,7 @@ const projects = [
     accentColor: "from-amber-500 to-orange-600"
   },
   {
-    id: 8,
+    id: 9,
     title: "Voice Assistant",
     category: "Mobile App",
     description: "Mobile voice assistant app powered by AI with natural language processing",
@@ -110,7 +110,7 @@ const projects = [
     accentColor: "from-violet-500 to-purple-600"
   },
   {
-    id: 9,
+    id: 10,
     title: "Job Portal",
     category: "SaaS",
     description: "Modern job listing platform with advanced filtering and application management",
@@ -120,7 +120,18 @@ const projects = [
     githubUrl: "https://github.com/ZazabT/jobhub",
     accentColor: "from-rose-500 to-pink-600"
   },
-  
+  {
+    id: 11,
+    title: "MerkatoX",
+    category: "E-commerce Platform",
+    description: "A modern e-commerce platform built with Next.js featuring product listings, search functionality, and a shopping cart. Integrated with a dummy product API to demonstrate real-world API consumption and state management.",
+    image: "/projects/merkato.png",
+    tags: ["Next.js", "React", "Tailwind CSS", "DummyJSON API", "Context API"],
+    demoUrl: "https://merkatox.vercel.app/",
+    githubUrl: "https://github.com/ZazabT/merkatox",
+    featured: true,
+    accentColor: "from-rose-500 to-pink-600"
+  },
 ];
 
 const categoryColors = {
