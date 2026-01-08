@@ -5,6 +5,18 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 const projects = [
   {
     id: 1,
+    title: "MerkatoX",
+    category: "E-commerce Platform",
+    description: "A modern e-commerce platform built with Next.js featuring product listings, search functionality, and a shopping cart. Integrated with a dummy product API to demonstrate real-world API consumption and state management.",
+    image: "/projects/merkato.png",
+    tags: ["Next.js", "React", "Tailwind CSS", "DummyJSON API", "Context API"],
+    demoUrl: "https://merkatox.vercel.app/",
+    githubUrl: "https://github.com/ZazabT/merkatox",
+    featured: true,
+    accentColor: "from-rose-500 to-pink-600"
+  },
+  {
+    id: 2,
     title: "Site.et",
     category: "CRM & Odoo Integration",
     description: "A modern Customer Relationship Management (CRM) platform designed to seamlessly integrate with Odoo ERP. Features deep Odoo integration, custom modules, and a responsive UI built with Laravel, React, and MySQL.",
@@ -16,7 +28,7 @@ const projects = [
     accentColor: "from-blue-500 to-indigo-600"
   },
   {
-    id: 2,
+    id: 3,
     title: "Ethio-vibe",
     category: "E-commerce",
     description: "Modern Ethiopian clothing e-commerce platform with a responsive frontend, comprehensive admin dashboard, and complete e-commerce functionality including shopping cart, secure checkout, and user authentication.",
