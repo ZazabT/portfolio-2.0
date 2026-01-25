@@ -100,7 +100,7 @@ export const ContactSection = () => {
     } catch (error) {
       toast({
         title: "Oops! Something went wrong",
-        description: "Please try again or email me directly at tizazab752@gmail.com",
+        description: "Please try again or email me directly at tizazabayana2@gmail.com",
         variant: "destructive"
       });
     } finally {
@@ -147,13 +147,13 @@ export const ContactSection = () => {
             {/* Info Cards */}
             <div className="grid gap-6">
               {/* Email */}
-              <a href="mailto:tizazab752@gmail.com" className="group flex items-center gap-4 p-5 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-primary/50 hover:bg-zinc-900 transition-all duration-300">
+              <a href="mailto:tizazabayana2@gmail.com" className="group flex items-center gap-4 p-5 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-primary/50 hover:bg-zinc-900 transition-all duration-300">
                 <div className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 group-hover:border-primary/50 group-hover:text-primary transition-colors">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
                   <p className="text-sm text-zinc-400">Mail me at</p>
-                  <p className="font-medium text-white group-hover:text-primary transition-colors">tizazab752@gmail.com</p>
+                  <p className="font-medium text-white group-hover:text-primary transition-colors">tizazabayana2@gmail.com</p>
                 </div>
               </a>
 

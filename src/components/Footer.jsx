@@ -28,7 +28,7 @@ export const Footer = () => {
   ];
 
   const contactInfo = [
-    { icon: <Mail size={18} />, text: "tizazab752@gmail.com", href: "mailto:tizazab752@gmail.com" },
+    { icon: <Mail size={18} />, text: "tizazabayana2@gmail.com", href: "mailto:tizazabayana2@gmail.com" },
     { icon: <Phone size={18} />, text: "+251 913 173 163", href: "tel:+251913173163" },
   ];
 
