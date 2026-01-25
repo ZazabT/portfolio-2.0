@@ -17,9 +17,21 @@ const projects = [
   },
   {
     id: 2,
+    title: "Kdame Gabeya",
+    category: "E-commerce Platform",
+    description: "A classifieds marketplace platform inspired by Jiji and Hulugram, enabling users to list and sell their products. Features user authentication, a robust product management dashboard, and a responsive marketplace experience.",
+    image: "/projects/kdame_gabeya.png",
+    tags: ["React", "Laravel", "Zustand", "PostgreSQL", "Inertia.js"],
+    demoUrl: "https://kedame-gabeya.vercel.app/",
+    githubUrl: "#",
+    featured: true,
+    accentColor: "from-purple-500 to-indigo-600"
+  },
+  {
+    id: 4,
     title: "Ethio-vibe",
-    category: "E-commerce",
-    description: "Modern Ethiopian clothing e-commerce platform with a responsive frontend, comprehensive admin dashboard, and complete e-commerce functionality including shopping cart, secure checkout, and user authentication.",
+    category: "E-commerce Platform",
+    description: "A classifieds marketplace platform inspired by Jiji and Hulugram, enabling users to list and sell their products. Features user authentication, a robust product management dashboard, and a responsive marketplace experience.",
     image: "/projects/ethiovibe.png",
     tags: ["React", "Node.js", "Redux", "MongoDB", "Express"],
     demoUrl: "https://ehiovibe.vercel.app/",
@@ -28,7 +40,7 @@ const projects = [
     accentColor: "from-purple-500 to-indigo-600"
   },
   {
-    id: 3,
+    id: 5,
     title: "Lekene",
     category: "Event Management",
     description: "A modern event website with a custom UI, SMS payment integration, and seamless customer-focused experience for event management. Built with Laravel, Inertia.js, and Blade templates.",
@@ -40,19 +52,19 @@ const projects = [
     accentColor: "from-green-500 to-emerald-600"
   },
   {
-    id: 4,
+    id: 6,
     title: "Spare Part ERP System",
     category: "ERP / Inventory",
     description: "A full-featured ERP system built for a Chinese spare parts company to manage products, orders, carts, invoicing, accounting, and packaging workflows. Designed to handle end-to-end spare part operations with scalable and efficient management tools.",
     image: "/projects/spar.png",
     tags: ["Laravel", "MySQL", "React", "Redux"],
     demoUrl: "https://erp.learnica.net/",
-    githubUrl: "Private",
+    githubUrl: "#",
     featured: true,
     accentColor: "from-blue-500 to-indigo-600"
   },
   {
-    id: 5,
+    id: 7,
     title: "Crime Records System",
     category: "Public Safety",
     description: "A Laravel 12 + React + Inertia app for managing public records of severe crimes including sex offenses, cannibalism, and organ trafficking. Supports missing person reports, admin-controlled wanted lists with rewards, and advanced filtering.",
@@ -64,7 +76,19 @@ const projects = [
     accentColor: "from-red-500 to-rose-600"
   },
   {
-    id: 6,
+    id: 3,
+    title: "MerkatoX",
+    category: "E-commerce Platform",
+    description: "A modern e-commerce platform built with Next.js featuring product listings, search functionality, and a shopping cart. Integrated with a dummy product API to demonstrate real-world API consumption and state management.",
+    image: "/projects/merkato.png",
+    tags: ["Next.js", "React", "Tailwind CSS", "DummyJSON API", "Context API"],
+    demoUrl: "https://merkatox.vercel.app/",
+    githubUrl: "https://github.com/ZazabT/merkatox",
+    featured: true,
+    accentColor: "from-rose-500 to-pink-600"
+  },
+  {
+    id: 8,
     title: "Yegna (Airbnb Clone)",
     category: "Accommodation",
     description: "Full-stack accommodation booking platform with advanced search and booking features",
@@ -76,7 +100,7 @@ const projects = [
     accentColor: "from-blue-500 to-cyan-600"
   },
   {
-    id: 7,
+    id: 9,
     title: "Ethio-fund",
     category: "Crowdfunding",
     description: "Crowdfunding platform for Ethiopian projects with secure payment integration",
@@ -88,7 +112,7 @@ const projects = [
     accentColor: "from-emerald-500 to-teal-600"
   },
   {
-    id: 8,
+    id: 10,
     title: "Tafach Recipe",
     category: "Food & Recipe",
     description: "Ethiopian food recipe sharing app with community features and recipe management",
@@ -99,7 +123,7 @@ const projects = [
     accentColor: "from-amber-500 to-orange-600"
   },
   {
-    id: 9,
+    id: 11,
     title: "Voice Assistant",
     category: "Mobile App",
     description: "Mobile voice assistant app powered by AI with natural language processing",
@@ -110,7 +134,7 @@ const projects = [
     accentColor: "from-violet-500 to-purple-600"
   },
   {
-    id: 10,
+    id: 12,
     title: "Job Portal",
     category: "SaaS",
     description: "Modern job listing platform with advanced filtering and application management",
@@ -120,22 +144,10 @@ const projects = [
     githubUrl: "https://github.com/ZazabT/jobhub",
     accentColor: "from-rose-500 to-pink-600"
   },
-  {
-    id: 11,
-    title: "MerkatoX",
-    category: "E-commerce Platform",
-    description: "A modern e-commerce platform built with Next.js featuring product listings, search functionality, and a shopping cart. Integrated with a dummy product API to demonstrate real-world API consumption and state management.",
-    image: "/projects/merkato.png",
-    tags: ["Next.js", "React", "Tailwind CSS", "DummyJSON API", "Context API"],
-    demoUrl: "https://merkatox.vercel.app/",
-    githubUrl: "https://github.com/ZazabT/merkatox",
-    featured: true,
-    accentColor: "from-rose-500 to-pink-600"
-  },
 ];
 
 const categoryColors = {
-  "E-commerce": "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+  "E-commerce Platform": "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
   "Accommodation": "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
   "Crowdfunding": "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200",
   "Food & Recipe": "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200",
@@ -150,39 +162,39 @@ export const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const sectionRef = useRef(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  
+
   const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "5%"]);
   const opacityBg = useTransform(scrollYProgress, [0, 0.5, 1], [0.1, 0.15, 0.1]);
 
-  const filteredProjects = activeFilter === "All" 
-    ? projects 
+  const filteredProjects = activeFilter === "All"
+    ? projects
     : projects.filter(project => project.category === activeFilter);
-  
+
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
 
   const categories = ["All", ...new Set(projects.map(project => project.category))];
 
   return (
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       className="relative py-16 md:py-24 lg:py-32 overflow-hidden"
       ref={sectionRef}
     >
       {/* Animated background elements */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 -z-10"
         style={{ y: yBg, opacity: opacityBg }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
       </motion.div>
-      
+
       {/* Floating animated orbs */}
-      <motion.div 
+      <motion.div
         className="absolute -top-20 -left-20 w-72 h-72 md:w-96 md:h-96 rounded-full bg-primary/10 blur-3xl"
         animate={{
           x: [-20, 20, -20],
@@ -194,7 +206,7 @@ export const ProjectsSection = () => {
           ease: "easeInOut"
         }}
       />
-      <motion.div 
+      <motion.div
         className="absolute -bottom-20 -right-20 w-72 h-72 md:w-96 md:h-96 rounded-full bg-secondary/10 blur-3xl"
         animate={{
           x: [20, -20, 20],
@@ -209,14 +221,14 @@ export const ProjectsSection = () => {
 
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative">
         {/* Section header with animation */}
-        <motion.div 
+        <motion.div
           className="text-center mb-12 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <motion.span 
+          <motion.span
             className="inline-flex items-center gap-2 text-xs font-medium tracking-widest text-primary/80 uppercase mb-4 md:mb-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -227,8 +239,8 @@ export const ProjectsSection = () => {
             PROJECT PORTFOLIO
             <div className="w-8 md:w-12 h-px bg-primary/50"></div>
           </motion.span>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -241,8 +253,8 @@ export const ProjectsSection = () => {
               Works
             </span>
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -255,7 +267,7 @@ export const ProjectsSection = () => {
 
         {/* Interactive filter tabs - Desktop */}
         <div className="hidden md:flex justify-center mb-10">
-          <motion.div 
+          <motion.div
             className="inline-flex bg-muted p-0.5 rounded-full border border-muted-foreground/10 shadow-sm"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -269,11 +281,10 @@ export const ProjectsSection = () => {
                   setActiveFilter(category);
                   setShowAll(false);
                 }}
-                className={`px-3 py-1 text-xs rounded-full font-medium transition-all duration-300 ${
-                  activeFilter === category
-                    ? "bg-background text-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`px-3 py-1 text-xs rounded-full font-medium transition-all duration-300 ${activeFilter === category
+                  ? "bg-background text-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {category}
               </button>
@@ -293,8 +304,8 @@ export const ProjectsSection = () => {
             viewport={{ once: true }}
           >
             <span>{activeFilter}</span>
-            <ChevronDown 
-              size={16} 
+            <ChevronDown
+              size={16}
               className={`transition-transform duration-200 ${isMobileFilterOpen ? "rotate-180" : ""}`}
             />
           </motion.button>
@@ -315,11 +326,10 @@ export const ProjectsSection = () => {
                       setIsMobileFilterOpen(false);
                       setShowAll(false);
                     }}
-                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                      activeFilter === category
-                        ? "bg-muted text-foreground"
-                        : "text-muted-foreground hover:bg-muted/50"
-                    }`}
+                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${activeFilter === category
+                      ? "bg-muted text-foreground"
+                      : "text-muted-foreground hover:bg-muted/50"
+                      }`}
                   >
                     {category}
                   </button>
@@ -344,10 +354,10 @@ export const ProjectsSection = () => {
               >
                 {/* Gradient accent */}
                 <div className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${project.accentColor}`}></div>
-                
+
                 {/* Featured badge */}
                 {project.featured && (
-                  <motion.div 
+                  <motion.div
                     className="absolute top-4 right-4 bg-gradient-to-br from-amber-400 to-amber-600 text-amber-900 px-2.5 py-1 rounded-full text-[0.7rem] font-bold flex items-center z-10 shadow-md"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -360,7 +370,7 @@ export const ProjectsSection = () => {
                 {/* Project image with hover effect */}
                 <div className="h-52 sm:h-56 overflow-hidden relative">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-end p-5">
-                    <motion.p 
+                    <motion.p
                       className="text-white/90 text-sm translate-y-5 group-hover:translate-y-0 transition-transform duration-500"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -383,9 +393,8 @@ export const ProjectsSection = () => {
                     <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <span className={`text-xs font-medium px-2 py-1 rounded ${
-                      categoryColors[project.category] || "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
-                    }`}>
+                    <span className={`text-xs font-medium px-2 py-1 rounded ${categoryColors[project.category] || "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
+                      }`}>
                       {project.category}
                     </span>
                   </div>
@@ -396,11 +405,10 @@ export const ProjectsSection = () => {
                       <motion.span
                         key={index}
                         whileHover={{ scale: 1.05 }}
-                        className={`px-2 py-0.5 text-[0.7rem] font-medium rounded-full ${
-                          tag.includes("Coming")
-                            ? "bg-destructive/10 text-destructive border border-destructive/20"
-                            : "bg-muted/80 text-foreground/80 hover:bg-primary hover:text-primary-foreground"
-                        } transition-colors duration-300`}
+                        className={`px-2 py-0.5 text-[0.7rem] font-medium rounded-full ${tag.includes("Coming")
+                          ? "bg-destructive/10 text-destructive border border-destructive/20"
+                          : "bg-muted/80 text-foreground/80 hover:bg-primary hover:text-primary-foreground"
+                          } transition-colors duration-300`}
                       >
                         {tag}
                       </motion.span>
@@ -413,11 +421,10 @@ export const ProjectsSection = () => {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-1.5 text-sm font-medium ${
-                        project.demoUrl === "#"
-                          ? "text-muted-foreground cursor-not-allowed"
-                          : "text-foreground/80 hover:text-primary group"
-                      } transition-colors duration-300`}
+                      className={`inline-flex items-center gap-1.5 text-sm font-medium ${project.demoUrl === "#"
+                        ? "text-muted-foreground cursor-not-allowed"
+                        : "text-foreground/80 hover:text-primary group"
+                        } transition-colors duration-300`}
                       onClick={(e) => project.demoUrl === "#" && e.preventDefault()}
                     >
                       <ExternalLink size={15} />
@@ -428,11 +435,10 @@ export const ProjectsSection = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-1.5 text-sm font-medium ${
-                        project.githubUrl === "#"
-                          ? "text-muted-foreground cursor-not-allowed"
-                          : "text-foreground/80 hover:text-primary group"
-                      } transition-colors duration-300`}
+                      className={`inline-flex items-center gap-1.5 text-sm font-medium ${project.githubUrl === "#"
+                        ? "text-muted-foreground cursor-not-allowed"
+                        : "text-foreground/80 hover:text-primary group"
+                        } transition-colors duration-300`}
                       onClick={(e) => project.githubUrl === "#" && e.preventDefault()}
                     >
                       <Code size={15} />
@@ -448,7 +454,7 @@ export const ProjectsSection = () => {
 
         {/* Show more/less button */}
         {filteredProjects.length > 3 && (
-          <motion.div 
+          <motion.div
             className="text-center mt-12 md:mt-16"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -459,11 +465,10 @@ export const ProjectsSection = () => {
               onClick={() => setShowAll(!showAll)}
               whileHover={{ y: -2, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               whileTap={{ scale: 0.98 }}
-              className={`inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                showAll
-                  ? "bg-muted text-foreground hover:bg-muted/90 border border-muted-foreground/20"
-                  : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-lg"
-              }`}
+              className={`inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-300 ${showAll
+                ? "bg-muted text-foreground hover:bg-muted/90 border border-muted-foreground/20"
+                : "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:shadow-lg"
+                }`}
             >
               {showAll ? (
                 <>
@@ -481,7 +486,7 @@ export const ProjectsSection = () => {
         )}
 
         {/* CTA section */}
-        <motion.div 
+        <motion.div
           className="text-center mt-16 md:mt-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
