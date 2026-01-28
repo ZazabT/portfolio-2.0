@@ -28,18 +28,6 @@ const projects = [
     accentColor: "from-purple-500 to-indigo-600"
   },
   {
-    id: 4,
-    title: "Ethio-vibe",
-    category: "E-commerce Platform",
-    description: "A classifieds marketplace platform inspired by Jiji and Hulugram, enabling users to list and sell their products. Features user authentication, a robust product management dashboard, and a responsive marketplace experience.",
-    image: "/projects/ethiovibe.png",
-    tags: ["React", "Node.js", "Redux", "MongoDB", "Express"],
-    demoUrl: "https://ehiovibe.vercel.app/",
-    githubUrl: "https://github.com/ZazabT/ethiovibe_frontend",
-    featured: true,
-    accentColor: "from-purple-500 to-indigo-600"
-  },
-  {
     id: 5,
     title: "Lekene",
     category: "Event Management",
@@ -51,6 +39,19 @@ const projects = [
     featured: true,
     accentColor: "from-green-500 to-emerald-600"
   },
+  {
+    id: 4,
+    title: "Ethio-vibe",
+    category: "E-commerce Platform",
+    description: "A classifieds marketplace platform inspired by Jiji and Hulugram, enabling users to list and sell their products. Features user authentication, a robust product management dashboard, and a responsive marketplace experience.",
+    image: "/projects/ethiovibe.png",
+    tags: ["React", "Node.js", "Redux", "MongoDB", "Express"],
+    demoUrl: "https://ehiovibe.vercel.app/",
+    githubUrl: "https://github.com/ZazabT/ethiovibe_frontend",
+    featured: true,
+    accentColor: "from-purple-500 to-indigo-600"
+  },
+
   {
     id: 6,
     title: "Spare Part ERP System",
