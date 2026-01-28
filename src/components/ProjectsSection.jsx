@@ -20,7 +20,7 @@ const projects = [
     title: "Kdame Gabeya",
     category: "E-commerce Platform",
     description: "A classifieds marketplace platform inspired by Jiji and Hulugram, enabling users to list and sell their products. Features user authentication, a robust product management dashboard, and a responsive marketplace experience.",
-    image: "/projects/kdame_gabeya.png",
+    image: "/projects/kd.png",
     tags: ["React", "Laravel", "Zustand", "PostgreSQL", "Inertia.js"],
     demoUrl: "https://kedame-gabeya.vercel.app/",
     githubUrl: "#",
