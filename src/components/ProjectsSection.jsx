@@ -16,11 +16,23 @@ const projects = [
     accentColor: "from-blue-500 to-indigo-600"
   },
   {
+    id: 13,
+    title: "Noora Resort & Spa",
+    category: "Hospitality & Booking",
+    description: "A full-featured resort booking platform for Noora Resort & Spa at Lake Hora, Bishoftu. Includes room reservations, experience bookings, event management, Chapa payment integration, and an AI assistant. Built with React and a Laravel REST API backed by MySQL.",
+    image: "/projects/noora.png",
+    tags: ["React", "Laravel", "MySQL", "Chapa", "REST API", "Tailwind CSS"],
+    demoUrl: "https://noora.yanoltech.com/",
+    githubUrl: "#",
+    featured: true,
+    accentColor: "from-amber-500 to-yellow-600"
+  },
+  {
     id: 2,
     title: "Kdame Gabeya",
     category: "E-commerce Platform",
     description: "A classifieds marketplace platform inspired by Jiji and Hulugram, enabling users to list and sell their products. Features user authentication, a robust product management dashboard, and a responsive marketplace experience.",
-    image: "/projects/kd.png",
+    image: "/projects/kdame_gabeya.png",
     tags: ["React", "Laravel", "Zustand", "PostgreSQL", "Inertia.js"],
     demoUrl: "https://kedame-gabeya.vercel.app/",
     githubUrl: "#",
@@ -155,7 +167,8 @@ const categoryColors = {
   "Mobile App": "bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-200",
   "SaaS": "bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200",
   "CRM & Odoo Integration": "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-  "Event Management": "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+  "Event Management": "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
+  "Hospitality & Booking": "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200"
 };
 
 export const ProjectsSection = () => {
