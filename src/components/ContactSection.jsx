@@ -8,13 +8,7 @@ import {
   Twitter,
   Github,
   Loader2,
-  Heart,
-  Coffee,
-  MessageSquare,
-  ArrowRight,
-  Sparkles
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -22,183 +16,158 @@ import { motion } from "framer-motion";
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const validateForm = () => {
     if (!formData.name.trim()) {
-      toast({
-        title: "Name is required",
-        variant: "destructive"
-      });
+      toast({ title: "Name is required", variant: "destructive" });
       return false;
     }
-
-    if (!formData.email.trim()) {
-      toast({
-        title: "Email is required",
-        variant: "destructive"
-      });
-      return false;
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      toast({
-        title: "Invalid email format",
-        variant: "destructive"
-      });
+    if (!formData.email.trim() || !/^\S+@\S+\.\S+$/.test(formData.email)) {
+      toast({ title: "Valid email is required", variant: "destructive" });
       return false;
     }
-
     if (!formData.message.trim() || formData.message.length < 10) {
-      toast({
-        title: "Message must be at least 10 characters",
-        variant: "destructive"
-      });
+      toast({ title: "Message must be at least 10 characters", variant: "destructive" });
       return false;
     }
-
     return true;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
-
     setIsSubmitting(true);
-
     try {
-      const response = await fetch('https://formspree.io/f/xwpbojaj', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch("https://formspree.io/f/xwpbojaj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       if (response.ok) {
         toast({
           title: "Message sent! 🎉",
           description: "I'll get back to you within 24 hours.",
-          variant: "success",
-          className: "bg-green-600 text-white dark:bg-green-500 border border-green-700 shadow-lg"
+          className: "bg-green-600 text-white border border-green-700 shadow-lg",
         });
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
+        setFormData({ name: "", email: "", message: "" });
+      } else throw new Error();
+    } catch {
       toast({
         title: "Oops! Something went wrong",
-        description: "Please try again or email me directly at tizazabayana2@gmail.com",
-        variant: "destructive"
+        description: "Please try again or email me directly.",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  return (
-    <section id="contact" className="py-24 relative bg-black text-white overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-primary/20 opacity-20 blur-[100px]"></div>
-      <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-secondary/20 opacity-20 blur-[100px]"></div>
+  const socials = [
+    { icon: Github, url: "https://github.com/ZazabT", label: "GitHub" },
+    { icon: Linkedin, url: "https://linkedin.com/in/codewithkinu", label: "LinkedIn" },
+    { icon: Twitter, url: "#", label: "Twitter" },
+    { icon: Instagram, url: "#", label: "Instagram" },
+  ];
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  return (
+    <section id="contact" className="py-24 relative bg-background text-foreground overflow-hidden">
+      {/* Grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:24px_24px] opacity-40" />
+
+      {/* Glow orbs */}
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[120px] -z-10" />
+      <div className="absolute right-0 bottom-0 w-[300px] h-[300px] rounded-full bg-secondary/10 blur-[100px] -z-10" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 max-w-6xl">
         {/* Header */}
         <motion.div
-          className="text-center mb-20"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-zinc-900 border border-zinc-800 text-sm font-medium text-zinc-400 mb-4">
-            <span className="mr-2">✨</span> Let's Connect
-          </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60">
-            Get in touch
+          <motion.span
+            className="inline-flex items-center gap-2 text-xs font-medium tracking-widest text-primary/80 uppercase mb-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="w-10 h-px bg-primary/50" />
+            Let's Connect
+            <div className="w-10 h-px bg-primary/50" />
+          </motion.span>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+              Get in{" "}
+            </span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+              Touch
+            </span>
           </h2>
-          <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-            Have a project in mind or just want to say hi? I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+            Have a project in mind or just want to say hi? I'm always open to discussing new
+            projects, creative ideas or opportunities to be part of your visions.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           {/* Contact Info */}
           <motion.div
-            className="lg:col-span-5 space-y-8"
+            className="lg:col-span-5 space-y-6"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {/* Info Cards */}
-            <div className="grid gap-6">
-              {/* Email */}
-              <a href="mailto:tizazabayana2@gmail.com" className="group flex items-center gap-4 p-5 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-primary/50 hover:bg-zinc-900 transition-all duration-300">
-                <div className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 group-hover:border-primary/50 group-hover:text-primary transition-colors">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-sm text-zinc-400">Mail me at</p>
-                  <p className="font-medium text-white group-hover:text-primary transition-colors">tizazabayana2@gmail.com</p>
-                </div>
-              </a>
-
-              {/* Phone */}
-              <a href="tel:+251913173163" className="group flex items-center gap-4 p-5 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-primary/50 hover:bg-zinc-900 transition-all duration-300">
-                <div className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 group-hover:border-primary/50 group-hover:text-primary transition-colors">
-                  <Phone className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-sm text-zinc-400">Call me at</p>
-                  <p className="font-medium text-white group-hover:text-primary transition-colors">+251 913 173 163</p>
-                </div>
-              </a>
-
-              {/* Location */}
-              <div className="group flex items-center gap-4 p-5 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-primary/50 hover:bg-zinc-900 transition-all duration-300">
-                <div className="p-3 rounded-xl bg-zinc-950 border border-zinc-800 group-hover:border-primary/50 group-hover:text-primary transition-colors">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-sm text-zinc-400">Based in</p>
-                  <p className="font-medium text-white">Addis Ababa, Ethiopia</p>
-                </div>
-              </div>
-            </div>
+            {[
+              { icon: Mail, label: "Mail me at", value: "tizazabayana2@gmail.com", href: "mailto:tizazabayana2@gmail.com" },
+              { icon: Phone, label: "Call me at", value: "+251 913 173 163", href: "tel:+251913173163" },
+              { icon: MapPin, label: "Based in", value: "Addis Ababa, Ethiopia", href: null },
+            ].map(({ icon: Icon, label, value, href }) => {
+              const Wrapper = href ? "a" : "div";
+              return (
+                <Wrapper
+                  key={label}
+                  href={href}
+                  className="group flex items-center gap-4 p-5 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">{label}</p>
+                    <p className="font-semibold text-foreground group-hover:text-primary transition-colors">{value}</p>
+                  </div>
+                </Wrapper>
+              );
+            })}
 
             {/* Socials */}
-            <div className="pt-8 border-t border-zinc-800">
-              <h3 className="text-lg font-medium text-white mb-6">Follow me</h3>
-              <div className="flex gap-4">
-                {[
-                  { icon: Github, url: "https://github.com/ZazabT" },
-                  { icon: Linkedin, url: "https://linkedin.com/in/codewithkinu" },
-                  { icon: Twitter, url: "#" },
-                  { icon: Instagram, url: "#" },
-                ].map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.url}
+            <div className="pt-6 border-t border-border">
+              <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-4">Follow me</h3>
+              <div className="flex gap-3">
+                {socials.map(({ icon: Icon, url, label }) => (
+                  <motion.a
+                    key={label}
+                    href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-primary/50 hover:bg-zinc-800 transition-all duration-300"
+                    aria-label={label}
+                    className="p-3 rounded-xl bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <social.icon className="w-5 h-5" />
-                  </a>
+                    <Icon className="w-5 h-5" />
+                  </motion.a>
                 ))}
               </div>
             </div>
@@ -212,51 +181,56 @@ export const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <form onSubmit={handleSubmit} className="p-8 rounded-3xl bg-zinc-900/30 border border-zinc-800 backdrop-blur-sm space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form
+              onSubmit={handleSubmit}
+              className="p-8 rounded-3xl bg-card border border-border shadow-sm space-y-6"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium text-zinc-300">Name</label>
+                  <label htmlFor="name" className="text-sm font-medium text-foreground">Name</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-zinc-950/50 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/60 transition-all"
                     placeholder="John Doe"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-zinc-300">Email</label>
+                  <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-zinc-950/50 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/60 transition-all"
                     placeholder="john@example.com"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium text-zinc-300">Message</label>
+                <label htmlFor="message" className="text-sm font-medium text-foreground">Message</label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   rows={6}
-                  className="w-full px-4 py-3 rounded-xl bg-zinc-950/50 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary/60 transition-all resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
-              <button
+              <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 px-6 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 disabled:opacity-70 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-primary to-secondary text-primary-foreground font-semibold disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-primary/20"
+                whileHover={{ scale: isSubmitting ? 1 : 1.01 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               >
                 {isSubmitting ? (
                   <>
@@ -269,7 +243,7 @@ export const ContactSection = () => {
                     <Send className="w-5 h-5" />
                   </>
                 )}
-              </button>
+              </motion.button>
             </form>
           </motion.div>
         </div>

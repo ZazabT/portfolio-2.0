@@ -1,74 +1,70 @@
-import { ArrowDown, MousePointerClick, Sparkles } from "lucide-react";
+import { ArrowDown, MousePointerClick, Download, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useInView } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15, delayChildren: 0.3 } },
+};
+
+const itemVariants = {
+  hidden: { y: 30, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+};
 
 export const HeroSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    }
-  };
-
-  const floatingVariants = {
-    float: {
-      y: [0, -15, 0],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden bg-gradient-to-b from-background via-background/80 to-primary/5"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden"
       ref={ref}
     >
-      {/* Floating particles background */}
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background via-background to-primary/5" />
+
+      {/* Floating orbs */}
+      <motion.div
+        className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-primary/20 blur-[120px] -z-10"
+        animate={{ x: [0, 30, 0], y: [0, -40, 0] }}
+        transition={{ duration: 18, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-secondary/15 blur-[140px] -z-10"
+        animate={{ x: [0, -30, 0], y: [0, 40, 0] }}
+        transition={{ duration: 22, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-1/2 w-64 h-64 rounded-full bg-primary/10 blur-[100px] -z-10"
+        animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
+        transition={{ duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+      />
+
+      {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden -z-10">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(18)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-primary/10"
+            className="absolute rounded-full bg-primary/20"
             style={{
-              width: Math.random() * 10 + 2 + 'px',
-              height: Math.random() * 10 + 2 + 'px',
-              left: Math.random() * 100 + '%',
-              top: Math.random() * 100 + '%',
+              width: Math.random() * 6 + 2 + "px",
+              height: Math.random() * 6 + 2 + "px",
+              left: Math.random() * 100 + "%",
+              top: Math.random() * 100 + "%",
             }}
             animate={{
-              y: [0, (Math.random() - 0.5) * 100],
-              x: [0, (Math.random() - 0.5) * 50],
-              opacity: [0.2, 0.8, 0.2],
+              y: [0, (Math.random() - 0.5) * 80],
+              x: [0, (Math.random() - 0.5) * 40],
+              opacity: [0.2, 0.7, 0.2],
             }}
             transition={{
               duration: Math.random() * 10 + 10,
               repeat: Infinity,
-              repeatType: 'reverse',
-              ease: 'linear'
+              repeatType: "reverse",
+              ease: "linear",
             }}
           />
         ))}
@@ -81,90 +77,106 @@ export const HeroSection = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
+          {/* Badge */}
           <motion.div variants={itemVariants}>
-            <motion.div 
-              className="text-lg md:text-xl font-mono text-primary mb-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
+            <motion.div
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/25 text-primary text-sm font-medium"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.4 }}
             >
-              
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               Full Stack Developer
             </motion.div>
           </motion.div>
 
-          <motion.h1 
+          {/* Name */}
+          <motion.h1
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight"
             variants={itemVariants}
           >
-            <span className="inline-block">I'm</span>
-            <motion.span 
-              className="text-primary inline-block ml-3 relative"
-              variants={itemVariants}
-            >
-              Tizazab Ayana
-              <motion.span 
-                className="absolute -bottom-2 left-0 h-1 bg-primary w-full"
+            <span className="text-foreground">I'm </span>
+            <span className="relative inline-block">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-secondary">
+                Tizazab Ayana
+              </span>
+              <motion.span
+                className="absolute -bottom-2 left-0 h-1 rounded-full bg-gradient-to-r from-primary to-secondary w-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
+                transition={{ delay: 0.9, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               />
-            </motion.span>
-
+            </span>
           </motion.h1>
 
-          <motion.p 
+          {/* Tagline */}
+          <motion.p
             className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-light"
             variants={itemVariants}
           >
-           Turning <span className="text-primary font-medium">cool ideas</span> into websites and apps that actually do something.  
+            Turning{" "}
+            <span className="text-primary font-medium">cool ideas</span> into websites and apps
+            that actually do something.
           </motion.p>
 
-          <motion.div 
-            className="pt-8 flex flex-col sm:flex-row justify-center gap-6"
+          {/* CTA Buttons */}
+          <motion.div
+            className="pt-6 flex flex-col sm:flex-row justify-center gap-4"
             variants={itemVariants}
           >
-            <motion.a 
-              href="#projects" 
-              className="relative cosmic-button group overflow-hidden px-8 py-4 rounded-full font-medium text-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ boxShadow: "0 0 0 0px rgba(99, 102, 241, 0.5)" }}
-              animate={{ boxShadow: "0 0 0 10px rgba(99, 102, 241, 0)" }}
-              transition={{ repeat: Infinity, duration: 2, delay: 1.5 }}
+            <motion.a
+              href="#projects"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-lg bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow duration-300"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <span className="relative z-10">Explore My Work</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-100 group-hover:opacity-90 transition-opacity duration-300"></span>
+              Explore My Work
+              <ArrowRight className="w-5 h-5" />
             </motion.a>
-            
-            <motion.a 
-              href="#contact" 
-              className="relative outline-button group overflow-hidden px-8 py-4 rounded-full font-medium text-lg border-2 border-primary/50 hover:border-primary transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+
+            <motion.a
+              href="/CV.pdf"
+              download="Tizazab_Ayana_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-lg border-2 border-primary/40 text-foreground hover:border-primary hover:bg-primary/5 transition-all duration-300"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.97 }}
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Let's Connect 
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                </svg>
-              </span>
-              <span className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300"></span>
+              <Download className="w-5 h-5" />
+              Download CV
             </motion.a>
+          </motion.div>
+
+          {/* Stats row */}
+          <motion.div
+            className="pt-8 flex flex-wrap justify-center gap-8 md:gap-16"
+            variants={itemVariants}
+          >
+            {[
+              { value: "12+", label: "Projects Built" },
+              { value: "3+", label: "Years Experience" },
+              { value: "100%", label: "Client Satisfaction" },
+            ].map(({ value, label }) => (
+              <div key={label} className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-primary">{value}</div>
+                <div className="text-sm text-muted-foreground mt-1">{label}</div>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Tech stack floating badges */}
-      <motion.div 
-        className="absolute left-8 bottom-1/3 hidden lg:flex flex-col gap-4 items-start"
-        variants={floatingVariants}
-        animate="float"
+      {/* Floating tech badges */}
+      <motion.div
+        className="absolute left-8 bottom-1/3 hidden lg:flex flex-col gap-3 items-start"
+        animate={{ y: [0, -12, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
-        {['React', 'Laravel', 'Node.js', 'Flutter', 'MongoDB'].map((tech, i) => (
-          <motion.div 
+        {["React", "Laravel", "Node.js", "Flutter", "MongoDB"].map((tech, i) => (
+          <motion.div
             key={tech}
-            className="px-4 py-2 bg-background/80 backdrop-blur-sm border rounded-full text-sm shadow-sm"
+            className="px-4 py-2 bg-card/80 backdrop-blur-sm border border-border rounded-full text-sm text-foreground shadow-sm"
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 1 + i * 0.1 }}
@@ -174,15 +186,15 @@ export const HeroSection = () => {
         ))}
       </motion.div>
 
-      <motion.div 
-        className="absolute right-8 top-1/3 hidden lg:flex flex-col gap-4 items-end"
-        variants={floatingVariants}
-        animate="float"
+      <motion.div
+        className="absolute right-8 top-1/3 hidden lg:flex flex-col gap-3 items-end"
+        animate={{ y: [0, 12, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       >
-        {['Express', 'Next.js', 'MySQL', 'Tailwind', 'Firebase'].map((tech, i) => (
-          <motion.div 
+        {["Next.js", "MySQL", "Tailwind", "Firebase", "Express"].map((tech, i) => (
+          <motion.div
             key={tech}
-            className="px-4 py-2 bg-background/80 backdrop-blur-sm border rounded-full text-sm shadow-sm"
+            className="px-4 py-2 bg-card/80 backdrop-blur-sm border border-border rounded-full text-sm text-foreground shadow-sm"
             initial={{ x: 20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 1.2 + i * 0.1 }}
@@ -192,72 +204,16 @@ export const HeroSection = () => {
         ))}
       </motion.div>
 
-      <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ 
-          opacity: [0, 1, 1, 0],
-          y: [0, 10, 0, -10],
-        }}
-        transition={{
-          duration: 2.5,
-          repeat: Infinity,
-          repeatDelay: 0.5,
-          ease: "easeInOut"
-        }}
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        animate={{ opacity: [0, 1, 1, 0], y: [0, 8, 0, -8] }}
+        transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 0.5, ease: "easeInOut" }}
       >
-        <span className="text-sm text-muted-foreground mb-2 flex items-center gap-1">
+        <span className="text-xs text-muted-foreground flex items-center gap-1">
           <MousePointerClick className="h-3 w-3" /> Scroll to explore
         </span>
-        <ArrowDown className="h-6 w-6 text-primary" />
-      </motion.div>
-
-      {/* Animated gradient background elements */}
-      <motion.div 
-        className="absolute inset-0 -z-10 overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.15 }}
-        transition={{ delay: 1, duration: 1.5 }}
-      >
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-primary to-purple-500 blur-[100px] opacity-30"
-          animate={{
-            x: [0, 20, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            repeatType: 'reverse',
-            ease: 'easeInOut'
-          }}
-        />
-        <motion.div 
-          className="absolute top-1/3 right-1/4 w-72 h-72 rounded-full bg-gradient-to-r from-secondary to-pink-500 blur-[120px] opacity-30"
-          animate={{
-            x: [0, -30, 0],
-            y: [0, 40, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: 'reverse',
-            ease: 'easeInOut'
-          }}
-        />
-        <motion.div 
-          className="absolute bottom-1/4 left-1/2 w-60 h-60 rounded-full bg-gradient-to-r from-accent to-blue-500 blur-[90px] opacity-30"
-          animate={{
-            x: [0, 25, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            repeatType: 'reverse',
-            ease: 'easeInOut'
-          }}
-        />
+        <ArrowDown className="h-5 w-5 text-primary" />
       </motion.div>
     </section>
   );

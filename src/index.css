@@ -8,6 +8,12 @@
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
 
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
   --color-card: hsl(var(--card));
 
   --animate-float: float 6s ease-in-out infinite;
@@ -60,6 +66,11 @@
       opacity: 0;
     }
   }
+  @keyframes blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(20px, -20px) scale(1.05); }
+    66% { transform: translate(-15px, 15px) scale(0.95); }
+  }
 }
 
 @layer base {
@@ -72,6 +83,12 @@
     --primary: 168 21% 40%; /* #5f7d79 */
     --primary-foreground: 0 0% 100%;
 
+    --secondary: 168 30% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 93%;
+    --muted-foreground: 215 25% 45%;
+
     --border: 214 32% 91%;
   }
 
@@ -81,8 +98,14 @@
 
     --card: 222 47% 8%;
 
-    --primary: 168 21% 50%; /* Lighter shade for dark mode */
+    --primary: 168 21% 50%;
     --primary-foreground: 213 31% 91%;
+
+    --secondary: 168 25% 60%;
+    --secondary-foreground: 213 31% 91%;
+
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 20% 60%;
 
     --border: 217 33% 20%;
   }
@@ -142,6 +165,16 @@
   @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
          transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
          hover:scale-105 active:scale-95;
+}
+
+.animate-blob {
+  animation: blob 8s ease-in-out infinite;
+}
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
 
 @utility star {
