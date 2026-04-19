@@ -154,7 +154,7 @@ export const HeroSection = () => {
             variants={itemVariants}
           >
             {[
-              { value: "12+", label: "Projects Built" },
+              { value: "20+", label: "Projects Built" },
               { value: "3+", label: "Years Experience" },
               { value: "100%", label: "Client Satisfaction" },
             ].map(({ value, label }) => (
