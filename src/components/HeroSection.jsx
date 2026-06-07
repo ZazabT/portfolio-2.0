@@ -135,7 +135,7 @@ export const HeroSection = () => {
             </motion.a>
 
             <motion.a
-              href="/CV.pdf"
+              href="/TIZAZAB AYANA"
               download="Tizazab_Ayana_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"

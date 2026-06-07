@@ -105,8 +105,8 @@ export const AboutSection = () => {
                   <ArrowRight className="w-4 h-4" />
                 </motion.a>
                 <motion.a
-                  href="/CV.pdf"
-                  download="Tizazab_Ayana_CV.pdf"
+                  href="/Tizazab_Ayana_Resume.docx"
+                  download="Tizazab_Ayana_Resume.docx"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl border border-border text-foreground font-medium hover:bg-muted/50 hover:border-primary/40 transition-all duration-300"
