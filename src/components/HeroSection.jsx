@@ -156,7 +156,7 @@ export const HeroSection = () => {
             {[
               { value: "20+", label: "Projects Built" },
               { value: "3+", label: "Years Experience" },
-              { value: "100%", label: "Client Satisfaction" },
+              { value: "101%", label: "Client Satisfaction" },
             ].map(({ value, label }) => (
               <div key={label} className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-primary">{value}</div>
