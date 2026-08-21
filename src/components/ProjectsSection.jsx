@@ -28,6 +28,18 @@ const projects = [
     accentColor: "from-amber-500 to-yellow-600"
   },
   {
+    id: 14,
+    title: "Liyana Healthcare",
+    category: "Healthcare & Management",
+    description: "A global healthcare portal and center management platform for Liyana Healthcare, the parent organization of Yanet Hospitals. Built with a sleek Next.js client website, Node.js backend, React admin dashboard, and PostgreSQL, providing comprehensive hospital unit and center management.",
+    image: "/projects/liyana.png",
+    tags: ["Next.js", "React", "Node.js", "PostgreSQL", "Tailwind CSS", "REST API"],
+    demoUrl: "https://liyanahealthcare.com/",
+    githubUrl: "#",
+    featured: true,
+    accentColor: "from-teal-500 to-emerald-600"
+  },
+  {
     id: 2,
     title: "Kdame Gabeya",
     category: "E-commerce Platform",
