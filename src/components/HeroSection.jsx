@@ -135,8 +135,8 @@ export const HeroSection = () => {
             </motion.a>
 
             <motion.a
-              href="/TIZAZAB AYANA"
-              download="Tizazab_Ayana_CV.pdf"
+              href="/Tizazab_Ayana.pdf"
+              download="Tizazab_Ayana.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-lg border-2 border-primary/40 text-foreground hover:border-primary hover:bg-primary/5 transition-all duration-300"
