@@ -130,7 +130,7 @@ export const ContactSection = () => {
           >
             {[
               { icon: Mail, label: "Mail me at", value: "tizazabayana2@gmail.com", href: "mailto:tizazabayana2@gmail.com" },
-              { icon: Phone, label: "Call me at", value: "+251 913 173 163", href: "tel:+251913173163" },
+              { icon: Phone, label: "Call me at", value: "+251 902 411 900", href: "tel:+251902411900" },
               { icon: MapPin, label: "Based in", value: "Addis Ababa, Ethiopia", href: null },
             ].map(({ icon: Icon, label, value, href }) => {
               const Wrapper = href ? "a" : "div";

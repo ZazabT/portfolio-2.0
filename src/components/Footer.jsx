@@ -101,7 +101,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               {[
                 { icon: <Mail size={15} />, text: "tizazabayana2@gmail.com", href: "mailto:tizazabayana2@gmail.com" },
-                { icon: <Phone size={15} />, text: "+251 913 173 163", href: "tel:+251913173163" },
+                { icon: <Phone size={15} />, text: "+251 902 411 900", href: "tel:+251902411900" },
               ].map((info, idx) => (
                 <li key={idx}>
                   <a
