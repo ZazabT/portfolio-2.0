@@ -1,5 +1,5 @@
-import { ArrowRight, ExternalLink, Github, ChevronUp, Star, Code, ChevronDown, MoveRight } from "lucide-react";
-import { useState, useRef } from "react";
+import { ArrowRight, ExternalLink, Github, ChevronUp, Star, Code, ChevronDown, MoveRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 const projects = [
@@ -214,8 +214,33 @@ const categoryColors = {
 export const ProjectsSection = () => {
   const [showAll, setShowAll] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
-  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const sectionRef = useRef(null);
+  const tabsContainerRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (tabsContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = tabsContainerRef.current;
+      setCanScrollLeft(scrollLeft > 8);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 8);
+    }
+  };
+
+  useEffect(() => {
+    checkScroll();
+    const handleResize = () => checkScroll();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleScroll = (direction) => {
+    if (tabsContainerRef.current) {
+      const scrollAmount = direction === "left" ? -300 : 300;
+      tabsContainerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      setTimeout(checkScroll, 350);
+    }
+  };
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -232,6 +257,11 @@ export const ProjectsSection = () => {
   const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3);
 
   const categories = ["All", ...new Set(projects.map(project => project.category))];
+
+  const getCategoryCount = (category) => {
+    if (category === "All") return projects.length;
+    return projects.filter((p) => p.category === category).length;
+  };
 
   return (
     <section
@@ -319,79 +349,91 @@ export const ProjectsSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* Interactive filter tabs - Desktop */}
-        <div className="hidden md:flex justify-center mb-10">
-          <motion.div
-            className="inline-flex bg-muted p-0.5 rounded-full border border-muted-foreground/10 shadow-sm"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {categories.map((category) => (
+        {/* Interactive scrollable filter tabs */}
+        <motion.div
+          className="relative max-w-5xl mx-auto mb-12 px-2 sm:px-4"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          viewport={{ once: true }}
+        >
+          {/* Left Arrow Button */}
+          {canScrollLeft && (
+            <div className="absolute -left-1 sm:left-1 top-1/2 -translate-y-1/2 z-20 flex items-center">
               <button
-                key={category}
-                onClick={() => {
-                  setActiveFilter(category);
-                  setShowAll(false);
-                }}
-                className={`px-3 py-1 text-xs rounded-full font-medium transition-all duration-300 ${activeFilter === category
-                  ? "bg-background text-foreground shadow-sm"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
+                type="button"
+                onClick={() => handleScroll("left")}
+                aria-label="Scroll categories left"
+                className="p-2.5 rounded-full bg-background/95 dark:bg-card/95 text-foreground shadow-xl border border-border hover:bg-muted hover:scale-110 active:scale-95 transition-all duration-200 backdrop-blur-md cursor-pointer"
               >
-                {category}
+                <ChevronLeft size={18} className="text-foreground" />
               </button>
-            ))}
-          </motion.div>
-        </div>
+            </div>
+          )}
 
-        {/* Mobile filter dropdown */}
-        <div className="md:hidden relative mb-8 max-w-xs mx-auto">
-          <motion.button
-            onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
-            whileTap={{ scale: 0.98 }}
-            className="w-full flex items-center justify-between px-4 py-3 bg-background border border-muted-foreground/20 rounded-lg shadow-sm"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            viewport={{ once: true }}
+          {/* Left Gradient Fade */}
+          {canScrollLeft && (
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background via-background/80 to-transparent z-10 rounded-l-full" />
+          )}
+
+          {/* Scrollable Tabs Bar */}
+          <div
+            ref={tabsContainerRef}
+            onScroll={checkScroll}
+            className="flex items-center gap-2.5 overflow-x-auto py-2.5 px-4 sm:px-8 scroll-smooth scrollbar-none"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            <span>{activeFilter}</span>
-            <ChevronDown
-              size={16}
-              className={`transition-transform duration-200 ${isMobileFilterOpen ? "rotate-180" : ""}`}
-            />
-          </motion.button>
-          <AnimatePresence>
-            {isMobileFilterOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.2 }}
-                className="absolute z-10 mt-1 w-full bg-background border border-muted-foreground/20 rounded-lg shadow-lg overflow-hidden"
-              >
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => {
-                      setActiveFilter(category);
-                      setIsMobileFilterOpen(false);
-                      setShowAll(false);
-                    }}
-                    className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${activeFilter === category
-                      ? "bg-muted text-foreground"
-                      : "text-muted-foreground hover:bg-muted/50"
-                      }`}
+            {categories.map((category) => {
+              const isActive = activeFilter === category;
+              const count = getCategoryCount(category);
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  onClick={() => {
+                    setActiveFilter(category);
+                    setShowAll(false);
+                  }}
+                  className={`group relative flex items-center gap-2.5 px-4 py-2 text-xs sm:text-sm font-semibold rounded-full whitespace-nowrap transition-all duration-300 flex-shrink-0 cursor-pointer ${
+                    isActive
+                      ? "bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-lg shadow-primary/25 scale-[1.03] ring-2 ring-primary/40"
+                      : "bg-card text-foreground/90 hover:text-foreground hover:bg-accent border border-border/80 hover:border-primary/40 shadow-sm backdrop-blur-sm"
+                  }`}
+                >
+                  <span className="tracking-wide">{category}</span>
+                  <span
+                    className={`text-[11px] px-2 py-0.5 rounded-full font-mono font-bold transition-colors ${
+                      isActive
+                        ? "bg-white/25 text-white"
+                        : "bg-muted text-muted-foreground group-hover:text-foreground group-hover:bg-muted/80"
+                    }`}
                   >
-                    {category}
-                  </button>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right Gradient Fade */}
+          {canScrollRight && (
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background via-background/80 to-transparent z-10 rounded-r-full" />
+          )}
+
+          {/* Right Arrow Button */}
+          {canScrollRight && (
+            <div className="absolute -right-1 sm:right-1 top-1/2 -translate-y-1/2 z-20 flex items-center">
+              <button
+                type="button"
+                onClick={() => handleScroll("right")}
+                aria-label="Scroll categories right"
+                className="p-2.5 rounded-full bg-background/95 dark:bg-card/95 text-foreground shadow-xl border border-border hover:bg-muted hover:scale-110 active:scale-95 transition-all duration-200 backdrop-blur-md cursor-pointer"
+              >
+                <ChevronRight size={18} className="text-foreground" />
+              </button>
+            </div>
+          )}
+        </motion.div>
 
         {/* Projects grid - Enhanced masonry layout */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">

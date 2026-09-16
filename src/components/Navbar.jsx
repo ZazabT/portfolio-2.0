@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import { useTheme } from "next-themes";
 import {
   Home,
   User,
@@ -27,21 +28,17 @@ const navItems = [
 ];
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState("light");
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored === "dark") {
-      document.documentElement.classList.add("dark");
-      setTheme("dark");
-    }
+    setMounted(true);
   }, []);
 
+  const isDark = mounted ? (resolvedTheme === "dark" || theme === "dark") : true;
+
   const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", newTheme);
-    setTheme(newTheme);
+    setTheme(isDark ? "light" : "dark");
   };
 
   return (
@@ -62,10 +59,10 @@ const ThemeToggle = () => {
     >
       <motion.div
         className="relative z-10"
-        animate={{ rotate: theme === "dark" ? 180 : 0 }}
+        animate={{ rotate: isDark ? 180 : 0 }}
         transition={{ duration: 0.3 }}
       >
-        {theme === "dark" ? (
+        {isDark ? (
           <Sun className="w-5 h-5 text-amber-500" />
         ) : (
           <Moon className="w-5 h-5 text-slate-600" />
