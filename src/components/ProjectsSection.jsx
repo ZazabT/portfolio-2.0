@@ -4,13 +4,13 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 
 const projects = [
   {
-    id: 1,
-    title: "Site.et",
-    category: "CRM & Odoo Integration",
-    description: "A modern Customer Relationship Management (CRM) platform designed to seamlessly integrate with Odoo ERP. Features deep Odoo integration, custom modules, and a responsive UI built with Laravel, React, and MySQL.",
-    image: "/projects/site.png",
-    tags: ["Laravel", "React", "MySQL", "Odoo", "REST API"],
-    demoUrl: "https://site.et",
+    id: 6,
+    title: "Spare Part ERP System",
+    category: "ERP / Inventory",
+    description: "A full-featured ERP system built for a Chinese spare parts company to manage products, orders, carts, invoicing, accounting, and packaging workflows. Designed to handle end-to-end spare part operations with scalable and efficient management tools.",
+    image: "/projects/spar.png",
+    tags: ["Laravel", "MySQL", "React", "Redux"],
+    demoUrl: "https://erp.learnica.net/",
     githubUrl: "#",
     featured: true,
     accentColor: "from-blue-500 to-indigo-600"
@@ -40,6 +40,18 @@ const projects = [
     accentColor: "from-teal-500 to-emerald-600"
   },
   {
+    id: 15,
+    title: "Bishoftu & Gelan E-Services",
+    category: "E-Governance & Public Services",
+    description: "A unified digital public service portal for Bishoftu and Gelan sub-city administrations. Allows citizens to browse municipal services, apply online with required file and document uploads, pay fees, and track their application progress step-by-step in real time. Built with Next.js for the public portal, React for the administrative back-office, Laravel REST API, and PostgreSQL.",
+    image: "/projects/eservice.png",
+    tags: ["Next.js", "React", "Laravel", "PostgreSQL", "Tailwind CSS", "REST API"],
+    demoUrl: "https://eservice.yanoltech.com/",
+    githubUrl: "#",
+    featured: true,
+    accentColor: "from-emerald-500 to-teal-600"
+  },
+  {
     id: 2,
     title: "Kdame Gabeya",
     category: "E-commerce Platform",
@@ -64,6 +76,18 @@ const projects = [
     accentColor: "from-green-500 to-emerald-600"
   },
   {
+    id: 1,
+    title: "Site.et",
+    category: "CRM & Odoo Integration",
+    description: "A modern Customer Relationship Management (CRM) platform designed to seamlessly integrate with Odoo ERP. Features deep Odoo integration, custom modules, and a responsive UI built with Laravel, React, and MySQL.",
+    image: "/projects/site.png",
+    tags: ["Laravel", "React", "MySQL", "Odoo", "REST API"],
+    demoUrl: "https://site.et",
+    githubUrl: "#",
+    featured: true,
+    accentColor: "from-blue-500 to-indigo-600"
+  },
+  {
     id: 4,
     title: "Ethio-vibe",
     category: "E-commerce Platform",
@@ -74,19 +98,6 @@ const projects = [
     githubUrl: "https://github.com/ZazabT/ethiovibe_frontend",
     featured: true,
     accentColor: "from-purple-500 to-indigo-600"
-  },
-
-  {
-    id: 6,
-    title: "Spare Part ERP System",
-    category: "ERP / Inventory",
-    description: "A full-featured ERP system built for a Chinese spare parts company to manage products, orders, carts, invoicing, accounting, and packaging workflows. Designed to handle end-to-end spare part operations with scalable and efficient management tools.",
-    image: "/projects/spar.png",
-    tags: ["Laravel", "MySQL", "React", "Redux"],
-    demoUrl: "https://erp.learnica.net/",
-    githubUrl: "#",
-    featured: true,
-    accentColor: "from-blue-500 to-indigo-600"
   },
   {
     id: 7,
@@ -180,7 +191,11 @@ const categoryColors = {
   "SaaS": "bg-rose-100 text-rose-800 dark:bg-rose-900 dark:text-rose-200",
   "CRM & Odoo Integration": "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
   "Event Management": "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-  "Hospitality & Booking": "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200"
+  "Hospitality & Booking": "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200",
+  "Healthcare & Management": "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200",
+  "Public Safety": "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200",
+  "ERP / Inventory": "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200",
+  "E-Governance & Public Services": "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-200",
 };
 
 export const ProjectsSection = () => {
