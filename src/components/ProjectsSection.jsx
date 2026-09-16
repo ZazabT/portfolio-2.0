@@ -4,6 +4,18 @@ import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
 
 const projects = [
   {
+    id: 16,
+    title: "Visit Bishoftu",
+    category: "Tourism & Hospitality",
+    description: "An official tourism and property management platform for Bishoftu City Administration to manage over 662+ properties, including resorts, hotels, cafes, and guest houses. Features an interactive public discovery portal and a comprehensive administrative dashboard.",
+    image: "/projects/visit_bishoftu.png",
+    tags: ["Next.js", "React", "Laravel", "PostgreSQL", "Tailwind CSS", "REST API"],
+    demoUrl: "https://visit-bishoftu.yanoltech.com/en",
+    githubUrl: "#",
+    featured: true,
+    accentColor: "from-sky-500 to-emerald-600"
+  },
+  {
     id: 6,
     title: "Spare Part ERP System",
     category: "ERP / Inventory",
@@ -183,6 +195,7 @@ const projects = [
 ];
 
 const categoryColors = {
+  "Tourism & Hospitality": "bg-sky-100 text-sky-800 dark:bg-sky-900 dark:text-sky-200",
   "E-commerce Platform": "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
   "Accommodation": "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
   "Crowdfunding": "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200",
