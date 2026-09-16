@@ -205,7 +205,7 @@ export const AboutSection = () => {
               {[
                 { value: "12+", label: "Projects" },
                 { value: "3+", label: "Years Exp." },
-                { value: "100%", label: "Satisfaction" },
+                { value: "101%", label: "Satisfaction" },
               ].map(({ value, label }) => (
                 <div
                   key={label}
