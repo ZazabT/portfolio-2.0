@@ -34,7 +34,7 @@ const projects = [
     description: "A full-featured resort booking platform for Noora Resort & Spa at Lake Hora, Bishoftu. Includes room reservations, experience bookings, event management, Chapa payment integration, and an AI assistant. Built with React and a Laravel REST API backed by MySQL.",
     image: "/projects/noora.png",
     tags: ["React", "Laravel", "MySQL", "Chapa", "REST API", "Tailwind CSS"],
-    demoUrl: "https://noora.yanoltech.com/",
+    demoUrl: "https://nooraresort.com/",
     githubUrl: "#",
     featured: true,
     accentColor: "from-amber-500 to-yellow-600"
